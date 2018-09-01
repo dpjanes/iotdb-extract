@@ -1,0 +1,5 @@
+---
+urls: bbc.com
+content: .story-body
+title: h1
+body: .story-body__inner p
