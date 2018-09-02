@@ -54,4 +54,7 @@ _.promise.make({
     }))
     .catch(error => {
         console.log("#", _.error.message(error))
+
+        delete error.self
+        console.log(error)
     })
