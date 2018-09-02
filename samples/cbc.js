@@ -43,7 +43,7 @@ _.promise.make({
 
     // analyze
     .then(extract.extract)
-    // .then(extract.entities)
+    .then(extract.entities)
 
     .then(_.promise.make(sd => {
         console.log("+", JSON.stringify(sd.jsons, null, 2))
