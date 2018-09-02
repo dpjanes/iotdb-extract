@@ -1,5 +1,7 @@
 ---
 urls: bbc.com
+meta:
+  language: en
 extract:
   content: .story-body
   title: h1

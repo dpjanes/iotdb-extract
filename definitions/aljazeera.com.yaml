@@ -1,5 +1,7 @@
 ---
 urls: aljazeera.com
+meta:
+  language: en
 extract:
   content: .main-container
   title: h1

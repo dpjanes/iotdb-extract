@@ -1,5 +1,7 @@
 ---
 urls: cbc.ca
+meta:
+  language: en
 extract:
   created:
     root: '.byline .timeStamp'
