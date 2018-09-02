@@ -9,3 +9,8 @@ extract:
   updated:
     root: 'meta[name="LastModifiedDate"]'
     attribute: content
+  keywords:
+    root: 'meta[name="news_keywords"]'
+    attribute: content
+    split: ","
+    list: true
