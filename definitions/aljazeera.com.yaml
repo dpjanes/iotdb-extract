@@ -6,3 +6,6 @@ extract:
   content: .main-container
   title: h1
   document: ".article-p-wrapper p"
+  updated:
+    root: 'meta[name="LastModifiedDate"]'
+    attribute: content
