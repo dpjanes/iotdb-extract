@@ -2,11 +2,8 @@
 urls: cbc.ca
 extract:
   created:
-    element: "head meta[property='article:published_time']"
-    attribute: content
-  updated:
-    element: "head meta[property='article:modified_time']"
-    attribute: content
+    root: '.byline .timeStamp'
+    attribute: datetime
   content: .detailBodyContent
   title: h1
   document: .story p
