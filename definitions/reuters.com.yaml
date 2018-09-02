@@ -7,6 +7,17 @@ extract:
   title: 
     root: h1
   document: p
-  removes: 
-  - .Attribution_container
-  - .StandardArticleBody_trustBadgeContainer
+  removes: div
+  keywords:
+    root: 'meta[property="og:article:tag"]'
+    attribute: content
+    split: ","
+    list: true
+  created:
+    root: 'meta[property="og:article:published_time"]'
+    attribute: content
+  updated:
+    root: 'meta[property="og:article:modified_time"]'
+    attribute: content
+
+    
