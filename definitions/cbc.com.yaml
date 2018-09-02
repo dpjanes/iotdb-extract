@@ -1,5 +1,6 @@
 ---
 urls: cbc.ca
-content: .detailBodyContent
-title: h1
-body: .story p
+extract:
+  content: .detailBodyContent
+  title: h1
+  document: .story p

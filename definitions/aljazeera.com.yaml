@@ -1,5 +1,6 @@
 ---
 urls: aljazeera.com
-content: .main-container
-title: h1
-body: ".article-p-wrapper p"
+extract:
+  content: .main-container
+  title: h1
+  document: ".article-p-wrapper p"
