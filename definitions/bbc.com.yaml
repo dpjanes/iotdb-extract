@@ -6,3 +6,9 @@ extract:
   content: .story-body
   title: h1
   document: .story-body__inner p
+  published:
+    root: 'script[type="application/ld+json"]'
+    jsonld: datePublished
+  updated:
+    root: 'script[type="application/ld+json"]'
+    jsonld: dateModified
