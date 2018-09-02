@@ -1,0 +1,5 @@
+---
+urls: aljazeera.com
+content: .main-container
+title: h1
+body: ".article-p-wrapper p"
