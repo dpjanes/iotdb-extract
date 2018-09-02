@@ -1,0 +1,12 @@
+---
+urls: reuters.com
+meta:
+  language: en
+extract:
+  content: .StandardArticleBody_body
+  title: 
+    root: h1
+  document: p
+  removes: 
+  - .Attribution_container
+  - .StandardArticleBody_trustBadgeContainer
