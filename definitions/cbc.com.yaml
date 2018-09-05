@@ -3,9 +3,9 @@ urls: cbc.ca
 meta:
   language: en
 extract:
+  _content: .detailBodyContent
   created:
     root: '.byline .timeStamp'
     attribute: datetime
-  content: .detailBodyContent
   title: h1
   document: .story p

@@ -3,7 +3,7 @@ urls: bbc.com
 meta:
   language: en
 extract:
-  content: .story-body
+  _content: .story-body
   title: h1
   document: .story-body__inner p
   published:

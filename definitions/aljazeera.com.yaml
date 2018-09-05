@@ -3,7 +3,7 @@ urls: aljazeera.com
 meta:
   language: en
 extract:
-  content: .main-container
+  _content: .main-container
   title: h1
   document: ".article-p-wrapper p"
   updated:

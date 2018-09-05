@@ -3,16 +3,17 @@ urls: reuters.com
 meta:
   language: en
 extract:
-  content: .StandardArticleBody_body
+  _content: .StandardArticleBody_body
+  _removes: div
   title: 
     root: h1
   document: p
-  removes: div
   keywords:
     root: 'meta[property="og:article:tag"]'
     attribute: content
     split: ","
     list: true
+    removes: Reuters
   created:
     root: 'meta[property="og:article:published_time"]'
     attribute: content
