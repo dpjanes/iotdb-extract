@@ -1,0 +1,28 @@
+---
+urls: allafrica.com
+samples:
+- https://allafrica.com/stories/201808280615.html
+meta:
+  language: en
+extract:
+  _content: .article .content-container
+  _removes: 
+  - .story-footer-link
+  - "#page-end-slidebox"
+  title: 
+    root: .article h1
+    removes: "Congo-Kinshasa: "
+  document: p
+  created:
+    root: 'meta[property="article:published_time"]'
+    attribute: content
+  updated:
+    root: 'meta[property="article:modified_time"]'
+    attribute: content
+  keywords:
+    root: 'meta[name="keywords"]'
+    attribute: content
+    split: ","
+    list: true
+
+    

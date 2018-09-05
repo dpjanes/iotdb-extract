@@ -1,9 +1,9 @@
 /**
- *  reuters.js
+ *  test.js
  *
  *  David Janes
  *  Consensas
- *  2018-09-01
+ *  2018-09-05
  *
  *  Copyright [2013-2018] [David P. Janes]
  *
@@ -25,8 +25,21 @@ const extract = require("iotdb-extract")
 const fs = require("iotdb-fs")
 const aws = require("iotdb-awslib")
 
+const minimist = require("minimist")
+const ad = minimist(process.argv.slice(2), {
+    boolean: [ "entities" ],
+})
+
+if (!ad._.length) {
+    console.log("#", "expected a domain name")
+    process.exit()
+}
+
+/**
+ *  Call like e.g. "node test bbc.com" and it will find the sample
+ *  URL from the definitions matching "bbc.com" and run 
+ */
 _.promise.make({
-    url: "https://www.reuters.com/article/us-zimbabwe-congo-rhinos/zimbabwe-to-donate-10-white-rhinos-to-congo-idUSKCN1LJ1IF",
 })
     // aws setup
     .then(_.promise.add("awsd", require("./aws.json")))
@@ -37,13 +50,32 @@ _.promise.make({
     .then(extract.initialize)
     .then(extract.load_rules.builtin)
 
+    // find a rule matching the domain
+    .then(_.promise.add("url", ad._[0]))
+    .then(extract.find)
+    .then(_.promise.make(sd => {
+        const urls = _.flatten(sd.rules
+            .map(rule => rule.samples)
+            .filter(url => url))
+
+        if (!urls.length) {
+            console.log("#", "could not find anything")
+            process.exit()
+        }
+
+        // console.log("HERE:XXX", sd.rules)
+        // process.exit()
+
+        sd.url = urls[0]
+    }))
+
     // find the rule, fetch
     .then(extract.find)
     .then(extract.fetch)
 
     // analyze
     .then(extract.extract)
-    .then(extract.entities)
+    .then(_.promise.conditional(ad.entities, extract.entities))
 
     // last step
     .then(extract.clean)
