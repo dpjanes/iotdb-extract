@@ -1,0 +1,24 @@
+---
+urls: news24.com
+samples:
+- https://www.news24.com/Africa/News/eastern-drc-has-new-ebola-case-in-city-of-14-million-20180905
+meta:
+  language: en
+extract:
+  _content: div.article
+  _removes: strong
+  title: h1
+  document: 
+    story: "#article-body p"
+    removes: "and Facebook"
+  created:
+    root: 'meta[name="date.created"]'
+    attribute: content
+  updated:
+    root: 'meta[name="date.updated"]'
+    attribute: content
+  keywords:
+    root: 'meta[name="news_keywords"]'
+    attribute: content
+    split: ","
+    list: true
