@@ -1,5 +1,7 @@
 ---
 urls: cbc.ca
+samples:
+- https://www.cbc.ca/news/politics/does-mexico-throw-canada-under-the-bus-1.4807073
 meta:
   language: en
 extract:

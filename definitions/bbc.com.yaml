@@ -1,5 +1,7 @@
 ---
 urls: bbc.com
+samples:
+- https://www.bbc.com/news/world-latin-america-45380237
 meta:
   language: en
 extract:

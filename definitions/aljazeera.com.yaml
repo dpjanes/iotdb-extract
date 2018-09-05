@@ -1,5 +1,7 @@
 ---
 urls: aljazeera.com
+samples:
+- https://www.aljazeera.com/news/2018/08/drc-kabila-stand-election-spokesman-180808130105604.html
 meta:
   language: en
 extract:
