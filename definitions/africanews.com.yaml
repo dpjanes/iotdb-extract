@@ -1,0 +1,21 @@
+---
+urls: africanews.com
+samples:
+- http://www.africanews.com/2018/09/04/bemba-disqualification-expected-drc-opposition-must-unite-katumbi/
+meta:
+  language: en
+extract:
+  _content: article.article
+  title: h1
+  document: .article-wrapper p
+  created:
+    root: 'meta[property="article:published_time"]'
+    attribute: content
+  updated:
+    root: 'meta[property="article:modified_time"]'
+    attribute: content
+  keywords:
+    root: 'meta[property="article:tag"]'
+    attribute: content
+    split: ","
+    list: true
