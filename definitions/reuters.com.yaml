@@ -13,6 +13,7 @@ extract:
     attribute: content
     split: ","
     list: true
+  organizations:
     removes: Reuters
   created:
     root: 'meta[property="og:article:published_time"]'

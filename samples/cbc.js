@@ -45,6 +45,8 @@ _.promise.make({
     .then(extract.extract)
     .then(extract.entities)
 
+    // last step
+    .then(extract.clean)
     .then(_.promise.make(sd => {
         console.log("+", JSON.stringify(sd.jsons, null, 2))
     }))
