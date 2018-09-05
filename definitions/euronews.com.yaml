@@ -1,0 +1,22 @@
+---
+urls: euronews.com
+samples:
+- http://www.euronews.com/2017/02/15/central-african-nations-warn-trump-reform-could-lead-to-conflict
+meta:
+  language: en
+extract:
+  _content: .c-article article 
+  title: 
+    root: h1
+  document: div[itemprop="articleBody"] p
+  created:
+    root: 'meta[name="date.created"]'
+    attribute: content
+  updated:
+    root: 'meta[name="date.updated"]'
+    attribute: content
+  keywords:
+    root: 'meta[name="news_keywords"]'
+    attribute: content
+    split: ","
+    list: true

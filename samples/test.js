@@ -63,9 +63,6 @@ _.promise.make({
             process.exit()
         }
 
-        // console.log("HERE:XXX", sd.rules)
-        // process.exit()
-
         sd.url = urls[0]
     }))
 
