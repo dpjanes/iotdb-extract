@@ -12,13 +12,8 @@ extract:
     story: "#article-body p"
     removes: "and Facebook"
   created:
-    root: 'meta[name="date.created"]'
+    root: 'meta[property="article:published_time"]'
     attribute: content
   updated:
-    root: 'meta[name="date.updated"]'
+    root: 'meta[property="article:modified_time"]'
     attribute: content
-  keywords:
-    root: 'meta[name="news_keywords"]'
-    attribute: content
-    split: ","
-    list: true
