@@ -43,7 +43,7 @@ const ok_error = (done, code) => error => {
  */
 const initialize = _.promise.make((self, done) => {
     _.promise.make(self)
-        .then(_.promise.add("extractd", require("./data/extract.json")))
+        // .then(_.promise.add("extractd", require("./data/extract.json")))
         .then(extract.initialize)
         .then(_.promise.done(done, self, "extract"))
         .catch(done)
