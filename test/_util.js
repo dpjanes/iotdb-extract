@@ -29,7 +29,7 @@ const path = require("path")
 
 const extract = require("..")
 
-const auto_fail = done => _.promise.make(self => done(new Error("didn't expect to get here")));
+const auto_fail = done => _.promise(self => done(new Error("didn't expect to get here")));
 const ok_error = (done, code) => error => {
     if (code && (_.error.code(error) !== code)) {
         return done(error)
@@ -41,12 +41,10 @@ const ok_error = (done, code) => error => {
 /**
  *  Standard connection
  */
-const initialize = _.promise.make((self, done) => {
-    _.promise.make(self)
-        // .then(_.promise.add("extractd", require("./data/extract.json")))
+const initialize = _.promise((self, done) => {
+    _.promise(self)
         .then(extract.initialize)
-        .then(_.promise.done(done, self, "extract"))
-        .catch(done)
+        .end(done, self, "extract")
 })
 
 /**
