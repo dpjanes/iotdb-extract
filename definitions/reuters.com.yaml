@@ -23,5 +23,3 @@ extract:
   updated:
     root: 'meta[property="og:article:modified_time"]'
     attribute: content
-
-    
