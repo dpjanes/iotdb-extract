@@ -4,12 +4,10 @@
         "url": "https://github.com/dpjanes/iotdb-extract/issues"
     }, 
     "dependencies": {
-        "iotdb-helpers": "~3.2.3", 
-        "extract": "~2.15.0"
+        "extract": "~2.15.0", 
+        "iotdb-helpers": "~3.3.2"
     }, 
     "description": "Pipe Oriented Programming", 
-    "devDependencies": {
-    }, 
     "homepage": "https://github.com/dpjanes/node-iotdb", 
     "license": "Apache-2.0", 
     "main": "index.js", 
