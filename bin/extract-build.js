@@ -1,5 +1,5 @@
 /*
- *  bin/extract-probe.js
+ *  bin/extract-build.js
  *
  *  David Janes
  *  Consensas
@@ -24,19 +24,19 @@ const ad = minimist(process.argv.slice(2), {
     boolean: [
         "verbose", "dump", "trace", "debug",
         "dry-run",
+        "guess",
     ],
     string: [
-        "configuration", "cfg", 
         "url", 
+        "document", "title",
     ],
     alias: {
-        "configuration": "cfg",
         "dry-run": "dry_run",
     }, 
 })
 
 const help = message => {
-    const name = "extract-probe"
+    const name = "extract-build"
 
     if (message) {
         console.log(`${name}: ${message}`)
@@ -47,7 +47,8 @@ const help = message => {
     console.log("")
     console.log("Options:")
     console.log("--url <url>                URL to pull (cached)")
-    console.log("--selector <selector>      CSS selector")
+    console.log("--document <selector>")
+    console.log("--title <selector>")
 
     process.exit(message ? 1 : 0)
 }
@@ -57,9 +58,6 @@ if (ad.help) {
 }
 if (!ad.url) {
     help("--url <url> is required")
-}
-if (!ad.selector) {
-    help("--selector <selector> is required")
 }
 _.logger.levels({
     debug: ad.debug || ad.verbose,
@@ -84,14 +82,6 @@ const _load = _.promise((self, done) => {
         .then(fs.write.utf8)
 
         .end(done, self, "document")
-        /*
-        .except(_.promise.unbail)
-        .make(sd => {
-            sd.$ = cheerio.load(sd.document)
-        })
-
-        .end(done, self, "$")
-        */
 })
 
 _load.method = "_load"
@@ -103,33 +93,39 @@ _load.requires = {
 _load.accepts = {
 }
 _load.produces = {
+    $: _.is.Object,
+    document: _.is.String,
 }
 
-/**
-const _build_rule = _.promise((self, done) => {
+const _guess = _.promise((self, done) => {
     _.promise(self)
-        .validate(_build_rule)
+        .validate(_guess)
 
         .make(sd => {
+            sd.$ = cheerio.load(sd.document)
+
+            if (!sd.rule.title) {
+                sd.rule.title = "h1"
+            }
+            /*
             console.log("==")
-            console.log("selector:", sd.selector)
+            console.log("document:", sd.document)
             console.log("result:")
-            console.log(sd.$(sd.selector).html())
+            console.log(sd.$(sd.document).html())
             console.log()
+            */
         })
 
         .end(done, self)
 })
 
-_build_rule.method = "yyy._build_rule"
-_build_rule.requires = {
-    selector: _.is.String,
+_guess.method = "_guess"
+_guess.requires = {
 }
-_build_rule.accepts = {
+_guess.accepts = {
 }
-_build_rule.produces = {
+_guess.produces = {
 }
- */
 
 /**
  *  main
@@ -142,44 +138,40 @@ _.promise({
     url: ad.url,
     url_hash: _.hash.md5(ad.url),
 
-    selectors: ad._,
+    documents: ad._,
 })
     .then(_load)
     .make(sd => {
+        sd.rule = {
+            document_required: false,
+            title_required: false,
+        }
+
+        if (ad.document) {
+            sd.rule.document = ad.document
+        }
+        if (ad.title) {
+            sd.rule.title = ad.title
+        }
+
         sd.rules = [
             {
-                extract: {
-                    document: ad.selector,
-                    document_required: false,
-                    title_required: false,
-                },
+                extract: sd.rule,
             }
         ]
     })
+    .then(_guess)
     .then(extract.extract)
     .make(sd => {
-        console.log("HERE:XXX", sd.jsons)
-    })
-    /*
-    EHRE: [ { urls: 'bbc.com',
-    samples: [ 'https://www.bbc.com/news/world-latin-america-45380237' ],
-    meta: { language: 'en' },
-    extract:
-     { _content: '.story-body',
-       title: 'h1',
-       document: '.story-body__inner p',
-       published: [Object],
-       updated: [Object] },
-    __length: 7 } ]
-    */
+        sd.jsons.forEach(json => {
+            delete json._rule
 
-    /*
-    .each({
-        method: _build_rule,
-        inputs: "selectors:selector",
-    })
-    */
+            console.log(yaml.safeDump(json, {
+                sortKeys: true,
+            }))
 
+        })
+    })
     // done
     .catch(error => {
         delete error.self
