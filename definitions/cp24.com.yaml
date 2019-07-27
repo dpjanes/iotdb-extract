@@ -14,3 +14,5 @@ extract:
   keywords:
     root: 'meta[name="news_keywords"]'
     attribute: content
+    split: ","
+    list: true

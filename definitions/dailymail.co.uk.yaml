@@ -1,11 +1,11 @@
 ---
-urls: france24.com
+urls: dailymail.co.uk
 samples:
   - >-
-    https://www.france24.com/en/20190727-hong-kong-protesters-defy-police-ban-rally-against-suspected-gangs
+    https://www.dailymail.co.uk/news/article-7292241/Violence-high-seas-clown-sparks-mass-brawl-aboard-P-O-cruise-liner-Britannia.html
 extract:
-  title: h1.t-content__title.a-page-title
-  document: div.t-content__body.u-clearfix
+  title: h1
+  document: div.article-text.wide.heading-tag-switch
   published:
     root: 'meta[property="article:published_time"]'
     attribute: content
@@ -13,7 +13,7 @@ extract:
     root: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[property="article:tag"]'
+    root: 'meta[name="keywords"]'
     attribute: content
     split: ","
     list: true

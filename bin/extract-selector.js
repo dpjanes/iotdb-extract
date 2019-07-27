@@ -24,9 +24,11 @@ const ad = minimist(process.argv.slice(2), {
     boolean: [
         "verbose", "dump", "trace", "debug",
         "dry-run",
+        "all",
     ],
     string: [
         "url", 
+        "body",
     ],
     alias: {
         "dry-run": "dry_run",
@@ -101,11 +103,28 @@ const _do_selector = _.promise((self, done) => {
         .validate(_do_selector)
 
         .make(sd => {
-            console.log("==")
-            console.log("selector:", sd.selector)
-            console.log("result:")
-            console.log(sd.$(sd.selector).html())
-            console.log()
+            if (self.all) {
+                sd.$(sd.selector).each((i, e) => {
+                    const $e = sd.$(e)
+                    console.log("==")
+                    console.log("selector:", sd.selector)
+
+                    if (ad.attribute) {
+                        const value = $e.attr()[ad.attribute] || null
+                        console.log(`${ad.attribute}: ${value}`)
+                    } else {
+                        console.log("result:")
+                        console.log($e.html())
+                    }
+                    console.log()
+                })
+            } else {
+                console.log("==")
+                console.log("selector:", sd.selector)
+                console.log("result:")
+                console.log(sd.$(sd.selector).html())
+                console.log()
+            }
         })
 
         .end(done, self)
@@ -133,6 +152,7 @@ _.promise({
     url_hash: _.hash.md5(ad.url),
 
     selectors: ad._,
+    all: ad.all ? true : false,
 })
     .then(_load)
     .each({

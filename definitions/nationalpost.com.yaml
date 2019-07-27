@@ -1,11 +1,11 @@
 ---
-urls: france24.com
+urls: nationalpost.com
 samples:
   - >-
-    https://www.france24.com/en/20190727-hong-kong-protesters-defy-police-ban-rally-against-suspected-gangs
+    https://nationalpost.com/news/politics/toronto-police-investigate-sudden-death-at-home-of-late-politician-david-caplan
 extract:
-  title: h1.t-content__title.a-page-title
-  document: div.t-content__body.u-clearfix
+  document: '#story-main-content'
+  title: h1.entry-title
   published:
     root: 'meta[property="article:published_time"]'
     attribute: content
@@ -13,7 +13,7 @@ extract:
     root: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[property="article:tag"]'
+    root: 'meta[name="news_keywords"]'
     attribute: content
     split: ","
     list: true
