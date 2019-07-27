@@ -1,0 +1,16 @@
+---
+urls: cp24.com
+samples:
+  - >-
+    https://www.cp24.com/news/toronto-investor-miles-nadal-spends-record-breaking-577k-on-rare-nike-sneakers-1.4526136
+extract:
+  title:
+    root: 'script[type="application/ld+json"]'
+    jsonld: headline
+  published:
+    root: 'script[type="application/ld+json"]'
+    jsonld: datePublished
+  document: div.articleBody
+  keywords:
+    root: 'meta[name="news_keywords"]'
+    attribute: content

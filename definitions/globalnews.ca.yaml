@@ -1,0 +1,16 @@
+---
+urls: globalnews.ca
+samples:
+  - 'https://globalnews.ca/news/5692289/hong-kong-police-tear-gas-protesters/'
+extract:
+  title: h1.story-h.gn-speakable-title
+  document: div.story-txt
+  published:
+    root: 'meta[name="pubdate"]'
+    attribute: content
+  updated:
+    root: 'meta[property="article:modified_time"]'
+    attribute: content
+  keywords:
+    root: 'meta[name="keywords"]'
+    attribute: content
