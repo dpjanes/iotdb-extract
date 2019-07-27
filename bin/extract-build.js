@@ -25,6 +25,9 @@ const ad = minimist(process.argv.slice(2), {
         "verbose", "dump", "trace", "debug",
         "dry-run",
         "guess",
+        "guess-h1",
+        "guess-h2",
+        "guess-h3",
     ],
     string: [
         "url", 
@@ -49,6 +52,9 @@ const help = message => {
     console.log("--url <url>                URL to pull (cached)")
     console.log("--document <selector>")
     console.log("--title <selector>")
+    console.log("")
+    console.log("--guess                    Try and figure out what's what")
+    console.log("--guess-h[123]             Force H1/H2/H3 for guessing title (H1 default")
 
     process.exit(message ? 1 : 0)
 }
@@ -97,24 +103,273 @@ _load.produces = {
     document: _.is.String,
 }
 
+/**
+ */
+const _guess_title = _.promise(self => {
+    _.promise.validate(self, _guess_title)
+    
+    if (self.rule.title) {
+        return
+    }
+
+    const $ = self.$
+
+    let name = "h1"
+    if (ad["guess-h2"]) {
+        let name = "h2"
+    } else if (ad["guess-h3"]) {
+        let name = "h3"
+    }
+
+    $(name).each((index, element) => {
+        const e$ = $(element)
+        const ead = e$.attr()
+
+        self.rule.title = name
+        if (ead.class) {
+            self.rule.title = name + "." + ead.class.replace(/[.]/g, ".")
+        }
+    })
+})
+
+_guess_title.method = "_guess_title"
+_guess_title.requires = {
+    rule: _.is.Dictionary,
+    $: _.is.Object,
+}
+_guess_title.accepts = {
+}
+_guess_title.produces = {
+}
+
+/**
+ */
+const _guess_document = _.promise(self => {
+    _.promise.validate(self, _guess_document)
+    
+    if (self.rule.document) {
+        return
+    }
+
+    const $ = self.$
+
+    let max = 0
+
+    $("*").each((index, element) => {
+        const e$ = $(element)
+
+        const n = e$.children("p").length
+        if (n <= max) {
+            return
+        }
+
+        for (let i = 0; i < 20; i++) {
+            if (!element || (element.tagName === "html") || !element.tagName) {
+                break
+            }
+
+            const e$ = $(element)
+            const ead = e$.attr()
+
+            if (ead.class && element.tagName === "div") {
+                self.rule.document = "div." + ead.class.replace(/[.]/g, ".")
+                max = n
+                break
+            }
+
+            element = element.parentNode
+
+        }
+    })
+})
+
+_guess_document.method = "_guess_document"
+_guess_document.requires = {
+    rule: _.is.Dictionary,
+    $: _.is.Object,
+}
+_guess_document.accepts = {
+}
+_guess_document.produces = {
+}
+
+/**
+ */
+const _guess_published = _.promise(self => {
+    _.promise.validate(self, _guess_published)
+    
+    const $ = self.$
+
+    $("meta").each((index, element) => {
+        const e$ = $(element)
+        const ead = e$.attr()
+
+        if (!ead.content) {
+            return
+        } else if (!ead.content.match(/^20[012][0-9]-?\d\d-?\d\d/)) {
+            return
+        }
+
+        const key_key = ead.name ? "name" : "property"
+        const key_value = ead[key_key]
+
+        switch (key_value) {
+        case "pubdate":
+        case "og:pubdate":
+        case "datePublished":
+        case "date.created":
+        case "article:published_time":
+        case "og:article:published_time":
+            if (self.rule.published) {
+                break
+            }
+
+            self.rule.published = {
+                root: 'meta[' + key_key + '="' + key_value + '"]',
+                attribute: "content"
+            }
+            break
+
+
+        case "lastmod":
+        case "dateModified":
+        case "article:modified_time":
+        case "LastModifiedDate":
+        case "date.updated":
+        case "og:article:modified_time":
+            if (self.rule.updated) {
+                break
+            }
+
+            self.rule.updated = {
+                root: 'meta[' + key_key + '="' + key_value + '"]',
+                attribute: "content"
+            }
+            break
+        }
+    })
+})
+
+/**
+ */
+const _guess_keywords = _.promise(self => {
+    _.promise.validate(self, _guess_keywords)
+    
+    const $ = self.$
+
+    $("meta").each((index, element) => {
+        const e$ = $(element)
+        const ead = e$.attr()
+
+        if (!ead.content) {
+            return
+        }
+
+        let key_key
+        if (ead.name) {
+            key_key = "name"
+        } else if (ead.property) {
+            key_key = "property"
+        } else if (ead.itemprop) {
+            key_key = "itemprop"
+        } else {
+            return
+        }
+        const key_value = ead[key_key]
+
+        switch (key_value) {
+        case "keywords":
+        case "news_keywords":
+        case "article:tag":
+        case "og:article:tag":
+            if (self.rule.keywords) {
+                break
+            }
+
+            self.rule.keywords = {
+                root: 'meta[' + key_key + '="' + key_value + '"]',
+                attribute: "content"
+            }
+            break
+        }
+    })
+})
+
+_guess_keywords.method = "_guess_keywords"
+_guess_keywords.requires = {
+    rule: _.is.Dictionary,
+    $: _.is.Object,
+}
+_guess_keywords.accepts = {
+}
+_guess_keywords.produces = {
+}
+
+/**
+ */
+const _guess_jsonld = _.promise(self => {
+    _.promise.validate(self, _guess_jsonld)
+    
+    const $ = self.$
+    const selector = 'script[type="application/ld+json"]'
+    const element = $(selector)
+    if (!element.length) {
+        return
+    }
+
+    const e$ = $(element)
+
+    let d
+    try {
+        d = JSON.parse(e$.html())
+    } catch (x) {
+        return
+    }
+
+    if (!self.rule.title && d.headline) {
+        self.rule.title = {
+            root: selector,
+            jsonld: "headline",
+        }
+    }
+        
+    if (!self.rule.published && d.datePublished) {
+        self.rule.published = {
+            root: selector,
+            jsonld: "datePublished",
+        }
+    }
+        
+    if (!self.rule.updated && d.dateModified) {
+        self.rule.updated = {
+            root: selector,
+            jsonld: "dateModified",
+        }
+    }
+})
+
+_guess_jsonld.method = "_guess_jsonld"
+_guess_jsonld.requires = {
+    rule: _.is.Dictionary,
+    $: _.is.Object,
+}
+_guess_jsonld.accepts = {
+}
+_guess_jsonld.produces = {
+}
+
 const _guess = _.promise((self, done) => {
     _.promise(self)
         .validate(_guess)
 
         .make(sd => {
-            sd.$ = cheerio.load(sd.document)
-
-            if (!sd.rule.title) {
-                sd.rule.title = "h1"
-            }
-            /*
-            console.log("==")
-            console.log("document:", sd.document)
-            console.log("result:")
-            console.log(sd.$(sd.document).html())
-            console.log()
-            */
+            sd.$ = cheerio.load(self.document)
         })
+        .then(_guess_jsonld)
+        .then(_guess_title)
+        .then(_guess_document)
+        .then(_guess_published)
+        .then(_guess_keywords)
 
         .end(done, self)
 })
@@ -160,7 +415,7 @@ _.promise({
             }
         ]
     })
-    .then(_guess)
+    .conditional(ad.guess, _guess)
     .then(extract.extract)
     .make(sd => {
         sd.jsons.forEach(json => {
@@ -171,6 +426,8 @@ _.promise({
             }))
 
         })
+
+        console.log("RULE", JSON.stringify(sd.rule, null, 2))
     })
     // done
     .catch(error => {
@@ -182,3 +439,8 @@ _.promise({
 
         help(_.error.message(error))
     })
+
+
+/*
+*/
+
