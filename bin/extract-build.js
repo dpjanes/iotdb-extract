@@ -16,6 +16,7 @@ const extract = require("..")
 const yaml = require("js-yaml")
 const path = require("path")
 const os = require("os")
+const URL = require("url").URL
 
 const cheerio = require("cheerio")
 
@@ -28,6 +29,7 @@ const ad = minimist(process.argv.slice(2), {
         "guess-h1",
         "guess-h2",
         "guess-h3",
+        "write",
     ],
     string: [
         "url", 
@@ -50,6 +52,8 @@ const help = message => {
     console.log("")
     console.log("Options:")
     console.log("--url <url>                URL to pull (cached)")
+    console.log("--write                    Write the YAML file")
+    console.log("")
     console.log("--document <selector>")
     console.log("--title <selector>")
     console.log("")
@@ -127,7 +131,7 @@ const _guess_title = _.promise(self => {
 
         self.rule.title = name
         if (ead.class) {
-            self.rule.title = name + "." + ead.class.replace(/[.]/g, ".")
+            self.rule.title = name + "." + ead.class.replace(/[ ]/g, ".")
         }
     })
 })
@@ -172,7 +176,7 @@ const _guess_document = _.promise(self => {
             const ead = e$.attr()
 
             if (ead.class && element.tagName === "div") {
-                self.rule.document = "div." + ead.class.replace(/[.]/g, ".")
+                self.rule.document = "div." + ead.class.replace(/[ ]/g, ".")
                 max = n
                 break
             }
@@ -383,23 +387,58 @@ _guess.produces = {
 }
 
 /**
+ */
+const _write = _.promise((self, done) => {
+    _.promise(self)
+        .validate(_write)
+
+        .make(sd => {
+            const hostname = new URL(sd.url).hostname.replace(/^www[.]/, "")
+
+            sd.path = hostname + ".yaml"
+            sd.document = "---\n" + yaml.safeDump({
+                urls: hostname,
+                samples: [ sd.url ],
+                extract: sd.rule,
+            },
+            sd.rule, {
+                sortKeys: true,
+            })
+
+            console.log("--")
+            console.log("-", "wrote:", sd.path)
+        })
+        .then(fs.write.utf8)
+
+        .end(done, self)
+})
+
+_write.method = "yyy._write"
+_write.requires = {
+}
+_write.accepts = {
+}
+_write.produces = {
+}
+
+
+/**
  *  main
  */
 _.promise({
+    trace: ad.trace,
     verbose: ad.verbose,
     dry_run: ad.dry_run,
 
     cache_folder: path.join(os.homedir(), "var", "iotdb-extract"),
     url: ad.url,
     url_hash: _.hash.md5(ad.url),
-
-    documents: ad._,
 })
     .then(_load)
     .make(sd => {
         sd.rule = {
-            document_required: false,
-            title_required: false,
+            _document_required: false,
+            _title_required: false,
         }
 
         if (ad.document) {
@@ -417,18 +456,32 @@ _.promise({
     })
     .conditional(ad.guess, _guess)
     .then(extract.extract)
+
     .make(sd => {
         sd.jsons.forEach(json => {
-            delete json._rule
+            _.keys(json)
+                .filter(key => key.startsWith("_"))
+                .forEach(key => delete json[key])
 
+            console.log("--")
             console.log(yaml.safeDump(json, {
                 sortKeys: true,
             }))
 
         })
 
-        console.log("RULE", JSON.stringify(sd.rule, null, 2))
+        _.keys(sd.rule)
+            .filter(key => key.startsWith("_"))
+            .forEach(key => delete sd.rule[key])
+
+        console.log("--")
+        console.log(yaml.safeDump(sd.rule, {
+            sortKeys: true,
+        }))
+
     })
+    .conditional(ad.write, _write)
+
     // done
     .catch(error => {
         delete error.self
