@@ -131,7 +131,7 @@ const _guess_title = _.promise(self => {
 
         self.rule.title = name
         if (ead.class) {
-            self.rule.title = name + "." + ead.class.replace(/[ ]/g, ".")
+            self.rule.title = name + "." + ead.class.split(" ").filter(x => x.length).join(".")
         }
     })
 })
@@ -173,10 +173,11 @@ const _guess_document = _.promise(self => {
             }
 
             const e$ = $(element)
-            const ead = e$.attr()
+            const ead = e$.attr();
 
-            if (ead.class && element.tagName === "div") {
-                self.rule.document = "div." + ead.class.replace(/[ ]/g, ".")
+            const oks = [ "div", "section", "article" ];
+            if (ead.class && (oks.indexOf(element.tagName) > -1)) {
+                self.rule.document = element.tagName + "." + ead.class.split(" ").filter(x => x.length).join(".")
                 max = n
                 break
             }
