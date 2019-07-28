@@ -293,7 +293,7 @@ const _guess_keywords = _.promise(self => {
 
             self.rule.keywords = {
                 root: 'meta[' + key_key + '="' + key_value + '"]',
-                attribute: "content"
+                attribute: "content",
                 split: ",",
                 list: true,
             }

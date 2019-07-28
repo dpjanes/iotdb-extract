@@ -1,0 +1,18 @@
+---
+urls: grapevine.is
+samples:
+  - 'https://grapevine.is/mag/feature/2019/07/19/of-monsters-and-men-fever-dream/'
+extract:
+  title: h1
+  document: article.main-article
+  published:
+    root: 'meta[property="article:published_time"]'
+    attribute: content
+  updated:
+    root: 'meta[property="article:modified_time"]'
+    attribute: content
+  keywords:
+    root: 'meta[property="article:tag"]'
+    attribute: content
+    split: ','
+    list: true
