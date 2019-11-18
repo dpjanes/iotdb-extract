@@ -5,7 +5,7 @@
     }, 
     "dependencies": {
         "extract": "~2.15.0", 
-        "iotdb-helpers": "~3.3.11"
+        "iotdb-helpers": "~3.4.2"
     }, 
     "description": "Extract data from webpages", 
     "homepage": "https://github.com/dpjanes/node-iotdb", 
