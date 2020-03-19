@@ -4,10 +4,13 @@
         "url": "https://github.com/dpjanes/iotdb-extract/issues"
     }, 
     "dependencies": {
-        "extract": "~2.15.0", 
-        "iotdb-helpers": "~3.4.2"
+        "cheerio": "~1.0.0-rc.3", 
+        "iotdb-awslib": "~2.0.1", 
+        "iotdb-fetch": "~1.2.3", 
+        "iotdb-fs": "~2.0.1", 
+        "iotdb-helpers": "~3.4.12"
     }, 
-    "description": "Extract data from webpages", 
+    "description": "POP Extract data from webpages", 
     "homepage": "https://github.com/dpjanes/node-iotdb", 
     "license": "Apache-2.0", 
     "main": "index.js", 
@@ -21,5 +24,5 @@
         "cover": "nyc --reporter=html mocha --recursive", 
         "test": "mocha --recursive --bail"
     }, 
-    "version": "1.0.2"
+    "version": "1.0.3"
 }
