@@ -5,7 +5,7 @@
  *  Consensas
  *  2018-11-10
  
- *  Copyright (2013-20190 [David P. Janes]
+ *  Copyright (2013-2020) David P. Janes
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.

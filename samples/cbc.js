@@ -1,11 +1,11 @@
 /**
- *  cbc.js
+ *  samples/cbc.js
  *
  *  David Janes
  *  Consensas
  *  2018-09-01
  *
- *  Copyright [2013-2018] [David P. Janes]
+ *  Copyright (2013-2020) David P. Janes
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -25,11 +25,12 @@ const extract = require("iotdb-extract")
 const fs = require("iotdb-fs")
 const aws = require("iotdb-awslib")
 
-_.promise.make({
+_.promise({
     url: "https://www.cbc.ca/news/politics/does-mexico-throw-canada-under-the-bus-1.4807073",
+    verbose: true,
 })
     // aws setup
-    .then(_.promise.add("awsd", require("./aws.json")))
+    .add("aws$cfg", require("./aws.json"))
     .then(aws.initialize)
     .then(aws.comprehend.initialize)
 
@@ -47,9 +48,9 @@ _.promise.make({
 
     // last step
     .then(extract.clean)
-    .then(_.promise.make(sd => {
+    .make(sd => {
         console.log("+", JSON.stringify(sd.jsons, null, 2))
-    }))
+    })
     .catch(error => {
         console.log("#", _.error.message(error))
 
