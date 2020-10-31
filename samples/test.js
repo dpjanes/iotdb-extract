@@ -39,7 +39,8 @@ if (!ad._.length) {
  *  Call like e.g. "node test bbc.com" and it will find the sample
  *  URL from the definitions matching "bbc.com" and run 
  */
-_.promise.make({
+_.promise({
+    url: ad._[0],
 })
     // aws setup
     .add("aws$cfg", require("./aws.json"))
@@ -51,9 +52,8 @@ _.promise.make({
     .then(extract.load_rules.builtin)
 
     // find a rule matching the domain
-    .then(_.promise.add("url", ad._[0]))
     .then(extract.find)
-    .then(_.promise.make(sd => {
+    .make(sd => {
         const urls = _.flatten(sd.rules
             .map(rule => rule.samples)
             .filter(url => url))
@@ -72,13 +72,13 @@ _.promise.make({
 
     // analyze
     .then(extract.extract)
-    .then(_.promise.conditional(ad.entities, extract.entities))
+    .conditional(ad.entities, extract.entities)
 
     // last step
     .then(extract.clean)
-    .then(_.promise.make(sd => {
+    .make(sd => {
         console.log(JSON.stringify(sd.jsons, null, 2))
-    }))
+    })
     .catch(error => {
         console.log("#", _.error.message(error))
 

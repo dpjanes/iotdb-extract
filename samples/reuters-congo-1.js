@@ -32,9 +32,7 @@ const configuration = {
     data: "reuters-congo-1/input.html",
 }
 
-_.promise.make({
-    // awsd: awsd,
-    // url: 
+_.promise({
 })
     // aws setup
     .add("aws$cfg", require("./aws.json"))
@@ -58,9 +56,9 @@ _.promise.make({
 
     // last step
     .then(extract.clean)
-    .then(_.promise.make(sd => {
+    .make(sd => {
         console.log(JSON.stringify(sd.jsons, null, 2))
-    }))
+    })
     .catch(error => {
         console.log("#", _.error.message(error))
 

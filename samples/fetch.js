@@ -25,7 +25,7 @@ const extract = require("iotdb-extract")
 const fs = require("iotdb-fs")
 const aws = require("iotdb-awslib")
 
-_.promise.make({
+_.promise({
     url: process.argv[2]
 })
     // aws setup
@@ -47,9 +47,9 @@ _.promise.make({
 
     // last step
     .then(extract.clean)
-    .then(_.promise.make(sd => {
+    .make(sd => {
         console.log(JSON.stringify(sd.jsons, null, 2))
-    }))
+    })
     .catch(error => {
         console.log("#", _.error.message(error))
 
