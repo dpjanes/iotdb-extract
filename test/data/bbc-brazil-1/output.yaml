@@ -1,4 +1,9 @@
-- document: >-
+- url: 'https://www.bbc.com/news/world-latin-america-45380237'
+  language: en
+  title: >-
+    Lula: Brazil's jailed ex-leader barred from presidential race by electoral
+    court
+  document: >-
     Brazil's top electoral court has ruled that jailed former President Luiz
     Inácio Lula da Silva cannot run as a candidate in the presidential election
     because of his corruption conviction.
@@ -50,7 +55,7 @@
 
 
     Despite his jail sentence, PT voted to nominate Lula as its candidate last
-    month.
+    month .
 
 
     Lula reportedly chose Fernando Haddad, former mayor of São Paulo, to run for
@@ -78,11 +83,5 @@
     Despite this, recent polls reportedly showed that around one-third of
     Brazilians would back Lula if he were allowed to run, which would make him
     the front-runner in October's vote.
-  language: en
   published: '2018-09-01T05:07:49+01:00'
-  title: >-
-    Lula: Brazil's jailed ex-leader barred from presidential race by electoral
-    court
   updated: '2018-09-01T05:07:49+01:00'
-  url: 'https://www.bbc.com/news/world-latin-america-45380237'
-
