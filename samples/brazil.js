@@ -24,9 +24,18 @@ const _ = require("iotdb-helpers")
 const extract = require("iotdb-extract")
 const fs = require("iotdb-fs")
 const aws = require("iotdb-awslib")
+const cache = require("iotdb-cache")
+
+const path = require("path")
 
 _.promise({
+    cache$cfg: {
+        path: path.join(__dirname, "..", ".fs-cache"),
+    },
 })
+    // cache - so we don't spend too much AWS money (work needed)
+    .then(fs.cache)
+
     // aws setup
     .add("aws$cfg", require("./aws.json"))
     .then(aws.initialize)
@@ -40,7 +49,7 @@ _.promise({
     .then(extract.find.p("https://www.bbc.com/news/world-latin-america-45380237"))
 
     // parse the document
-    .then(fs.read.p("brazil.html", "utf-8"))
+    .then(fs.read.utf8.p(path.join(__dirname, "../test/data/bbc-brazil-1/input.html")))
     .then(extract.extract)
 
     // get entities & sentiment
