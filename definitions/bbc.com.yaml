@@ -5,7 +5,7 @@ samples:
 meta:
   language: en
 extract:
-  _content: .story-body
+  $content: .story-body
   title: h1
   document: .story-body__inner p
   published:

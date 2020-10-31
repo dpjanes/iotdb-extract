@@ -5,8 +5,8 @@ samples:
 meta:
   language: en
 extract:
-  _content: .StandardArticleBody_body
-  _removes: div
+  $content: .StandardArticleBody_body
+  $removes: div
   title: 
     root: h1
   document: p

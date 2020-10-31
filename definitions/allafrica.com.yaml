@@ -5,8 +5,8 @@ samples:
 meta:
   language: en
 extract:
-  _content: .article .content-container
-  _removes: 
+  $content: .article .content-container
+  $removes: 
   - .story-footer-link
   - "#page-end-slidebox"
   title: 

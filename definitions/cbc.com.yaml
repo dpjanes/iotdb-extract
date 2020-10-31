@@ -5,7 +5,7 @@ samples:
 meta:
   language: en
 extract:
-  _content: .detailBodyContainer
+  $content: .detailBodyContainer
   created:
     root: '.byline .timeStamp'
     attribute: datetime

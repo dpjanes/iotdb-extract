@@ -5,7 +5,7 @@ samples:
 meta:
   language: en
 extract:
-  _content: .main-container
+  $content: .main-container
   title: h1
   document: ".article-p-wrapper p"
   updated:

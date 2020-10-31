@@ -5,7 +5,7 @@ samples:
 meta:
   language: en
 extract:
-  _content: .c-article article 
+  $content: .c-article article 
   title: 
     root: h1
   document: div[itemprop="articleBody"] p

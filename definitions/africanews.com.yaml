@@ -5,7 +5,7 @@ samples:
 meta:
   language: en
 extract:
-  _content: article.article
+  $content: article.article
   title: h1
   document: .article-wrapper p
   created:

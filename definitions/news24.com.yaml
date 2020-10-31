@@ -5,8 +5,8 @@ samples:
 meta:
   language: en
 extract:
-  _content: div.article
-  _removes: strong
+  $content: div.article
+  $removes: strong
   title: h1
   document: 
     story: "#article-body p"
