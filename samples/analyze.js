@@ -38,7 +38,9 @@ _.promise({
     .then(extract.initialize)
 
     // parse the document and guess it's structure
+    .then(fs.read.utf8.p(path.join(__dirname, "../test/data/reuters-congo-1/input.html")))
     .then(fs.read.utf8.p(path.join(__dirname, "../test/data/bbc-brazil-1/input.html")))
+    .then(fs.read.utf8.p(path.join(__dirname, "../test/data/cp24-1/input.html")))
     .then(extract.analyze)
 
     .make(sd => {
