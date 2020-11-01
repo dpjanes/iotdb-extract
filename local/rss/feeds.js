@@ -28,7 +28,7 @@ const fetch = require("iotdb-fetch")
 const cheerio = require("cheerio")
 const minimist = require("minimist")
 const ad = minimist(process.argv.slice(2), {
-    boolean: [ "entities" ],
+    boolean: [ ],
 })
 
 if (!ad._.length) {
