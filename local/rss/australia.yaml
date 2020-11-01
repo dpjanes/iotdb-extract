@@ -1,0 +1,122 @@
+name: Australian News RSS Feeds
+feeds:
+  - name: ABC Australia
+    feed: 'http://www.abc.net.au/news/feed/2942460/rss.xml'
+    url: 'https://www.abc.net.au/news/'
+  - name: 9NEWS
+    feed: 'http://www.9news.com.au/rss'
+    url: 'https://www.9news.com.au/'
+  - name: Daily Telegraph
+    feed: 'http://www.dailytelegraph.com.au/feed'
+    url: 'http://www.dailytelegraph.com.au/'
+  - name: 'SMH'
+    feed: 'http://feeds.smh.com.au/rssheadlines/top.xml'
+    url: 'https://www.smh.com.au/'
+  - name: News.com.au - Australia's News site
+    feed: 'https://www.news.com.au/feed/'
+    url: 'https://www.news.com.au/'
+  - name: The Australian
+    feed: 'https://www.theaustralian.com.au/feed/'
+    url: 'https://www.theaustralian.com.au/'
+  - name: The Age News Headlines
+    feed: 'http://feeds.theage.com.au/rssheadlines/top.xml'
+    url: 'https://www.theage.com.au/'
+  - name: SBS Australia
+    feed: 'http://www.sbs.com.au/news/rss/Section/Top+Stories'
+    url: 'https://www.sbs.com.au/'
+  - name: Herald Sun
+    feed: 'https://www.heraldsun.com.au/rss'
+    url: 'http://www.heraldsun.com.au/'
+  - name: 'Huffington Post Australia '
+    feed: 'http://www.huffingtonpost.com.au/rss/index.xml'
+    url: 'https://www.huffingtonpost.com.au/'
+  - name: The Courier Mail
+    feed: 'http://www.couriermail.com.au/feed'
+    url: 'http://www.couriermail.com.au/'
+  - name: Perth Now
+    feed: 'http://www.perthnow.com.au/feed'
+    url: 'https://www.perthnow.com.au/'
+  - name: 'Brisbane Times'
+    feed: 'http://feeds.brisbanetimes.com.au/rssheadlines/top.xml'
+    url: 'https://www.brisbanetimes.com.au/'
+  - name: The Canberra Times
+    feed: 'https://www.canberratimes.com.au/rss.xml'
+    url: 'https://www.canberratimes.com.au/'
+  - name: WA Today
+    feed: 'http://feeds.watoday.com.au/rssheadlines/top.xml'
+    url: 'https://www.watoday.com.au/'
+  - name: Gold Coast Bulletin
+    feed: 'http://www.goldcoastbulletin.com.au/feed'
+    url: 'http://www.goldcoastbulletin.com.au/'
+  - name: The Mercury
+    feed: 'http://www.themercury.com.au/feed'
+    url: 'http://www.themercury.com.au/'
+  - name: NT News
+    feed: 'https://www.ntnews.com.au/news/rss'
+    url: 'http://www.ntnews.com.au/'
+  - name: 'Crikey'
+    feed: 'https://www.crikey.com.au/feed/'
+    url: 'https://www.crikey.com.au/'
+  - name: The Northern Star
+    feed: 'https://www.northernstar.com.au/feeds/rss/homepage/'
+    url: 'https://www.northernstar.com.au/'
+  - name: InDaily
+    feed: 'http://indaily.com.au/feed/'
+    url: 'https://indaily.com.au/'
+  - name: Independent Australia
+    feed: 'http://feeds.feedburner.com/IndependentAustralia'
+    url: 'https://independentaustralia.net/'
+  - name: 'Townsville Bulletin '
+    feed: 'https://www.townsvillebulletin.com.au/news/rss'
+    url: 'http://www.townsvillebulletin.com.au/'
+  - name: The Shovel
+    feed: 'http://www.theshovel.com.au/feed/rss'
+    url: 'http://www.theshovel.com.au/'
+  - name: Business News
+    feed: 'http://www.businessnews.com.au/rssfeed/latest.rss'
+    url: 'https://www.businessnews.com.au/'
+  - name: Kalkine Media
+    feed: 'https://kalkinemedia.com/feed/'
+    url: 'https://kalkinemedia.com/'
+  - name: ' Coffs Coast Advocate'
+    feed: 'https://www.coffscoastadvocate.com.au/feeds/rss/homepage/'
+    url: 'https://www.coffscoastadvocate.com.au/'
+  - name: International Business Times AU
+    feed: 'https://www.ibtimes.com.au/rss'
+    url: 'https://www.ibtimes.com.au/'
+  - name: Daily Examiner
+    feed: 'https://www.dailyexaminer.com.au/feeds/rss/homepage/'
+    url: 'https://www.dailyexaminer.com.au/'
+  - name: Australian Newsagency Blog
+    feed: 'https://www.newsagencyblog.com.au/feed/'
+    url: 'https://www.newsagencyblog.com.au/'
+  - name: Whitsunday Times
+    feed: 'https://www.whitsundaytimes.com.au/feeds/rss/homepage/'
+    url: 'https://www.whitsundaytimes.com.au/'
+  - name: Tasmanian Times
+    feed: 'https://tasmaniantimes.com/?/feeds/rss'
+    url: 'https://tasmaniantimes.com/'
+  - name: Ballina Advocate
+    feed: 'https://www.ballinaadvocate.com.au/feeds/rss/homepage/'
+    url: 'https://www.ballinaadvocate.com.au/'
+  - name: 'Goulburn Post '
+    feed: 'https://www.goulburnpost.com.au/rss.xml'
+    url: 'https://www.goulburnpost.com.au/'
+  - name: Alice Springs News
+    feed: 'https://www.alicespringsnews.com.au/feed/'
+    url: 'https://www.alicespringsnews.com.au/'
+  - name: 'Sydney Sun'
+    feed: 'http://feeds.sydneysun.com/rss/ae0def0d9b645403'
+    url: 'https://www.sydneysun.com/'
+  - name: '16 News '
+    feed: 'http://www.16news.com.au/index.php/feed/'
+    url: 'http://www.16news.com.au/'
+  - name: The Australian Jewish News
+    feed: 'https://www.jewishnews.net.au/feed'
+    url: 'https://www.jewishnews.net.au/'
+  - name: 'Perth Herald'
+    feed: 'http://feeds.perthherald.com/rss/12878be9fc2ca79c'
+    url: 'https://www.perthherald.com/'
+  - name: Ozzie News
+    feed: 'https://www.ozzienews.com/feed'
+    url: 'https://www.ozzienews.com/'

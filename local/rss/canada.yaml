@@ -1,0 +1,205 @@
+name: Canadian News RSS Feeds
+feeds:
+  - name: CBC News » Top Stories
+    feed: 'http://rss.cbc.ca/lineup/topstories.xml'
+    url: 'https://www.cbc.ca/news'
+  - name: The Globe and Mail
+    feed: 'https://www.theglobeandmail.com/?service=rss'
+    url: 'https://www.theglobeandmail.com/'
+  - name: CTV News
+    feed: 'http://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009'
+    url: 'https://www.ctvnews.ca/'
+  - name: Global News
+    feed: 'https://globalnews.ca/feed/'
+    url: 'https://globalnews.ca/'
+  - name: Toronto Star
+    feed: >-
+      http://www.thestar.com/content/thestar/feed.RSSManagerServlet.topstories.full.rss
+    url: 'https://www.thestar.com/'
+  - name: Huffington Post Canada
+    feed: 'https://www.huffingtonpost.ca/feeds/index.xml'
+    url: 'https://www.huffingtonpost.ca/'
+  - name: 'National Post'
+    feed: 'http://feeds.feedburner.com/np_top_stories.rss'
+    url: 'https://nationalpost.com/'
+  - name: Toronto Sun
+    feed: 'https://torontosun.com/feed/'
+    url: 'https://torontosun.com/'
+  - name: Financial Post
+    feed: 'http://feeds.feedburner.com/FP_TopStories'
+    url: 'https://business.financialpost.com/'
+  - name: The Vancouver Sun
+    feed: 'https://vancouversun.com/feed/?x=1'
+    url: 'https://vancouversun.com/'
+  - name: CityNews Toronto
+    feed: 'https://toronto.citynews.ca/feed/'
+    url: 'https://toronto.citynews.ca/'
+  - name: Metro News Canada
+    feed: 'http://www.metronews.ca/feeds.articles.news.rss'
+    url: 'http://www.metronews.ca/news.html'
+  - name: Maclean's Magazine
+    feed: 'https://www.macleans.ca/feed/'
+    url: 'https://www.macleans.ca/'
+  - name: Montreal Gazette
+    feed: 'https://montrealgazette.com/feed/'
+    url: 'https://montrealgazette.com/'
+  - name: Calgary Herald
+    feed: 'https://calgaryherald.com/feed/'
+    url: 'https://calgaryherald.com/'
+  - name: 'The Post Millennial'
+    feed: 'https://www.thepostmillennial.com/feed/'
+    url: 'https://www.thepostmillennial.com/'
+  - name: Ottawa Citizen
+    feed: 'https://ottawacitizen.com/feed/'
+    url: 'https://ottawacitizen.com/'
+  - name: Canada.com
+    feed: 'https://o.canada.com/feed/'
+    url: 'https://o.canada.com/'
+  - name: The Georgia Straight
+    feed: 'https://www.straight.com/content/rss'
+    url: 'https://www.straight.com/'
+  - name: 'The Waterloo Region Record (The Record) '
+    feed: 'http://rss.metroland.com/15/article/waterlooregion'
+    url: 'https://www.therecord.com/'
+  - name: Edmonton Journal
+    feed: 'https://edmontonjournal.com/feed/'
+    url: 'https://edmontonjournal.com/'
+  - name: The Province
+    feed: 'https://theprovince.com/feed/'
+    url: 'https://theprovince.com/'
+  - name: Calgary Sun
+    feed: 'https://calgarysun.com/feed/'
+    url: 'https://calgarysun.com/'
+  - name: Windsor Star
+    feed: 'https://windsorstar.com/feed/'
+    url: 'https://windsorstar.com/'
+  - name: Edmonton Sun
+    feed: 'https://edmontonsun.com/feed/'
+    url: 'https://edmontonsun.com/'
+  - name: 'Canadian Business '
+    feed: 'https://www.canadianbusiness.com/feed/'
+    url: 'https://www.canadianbusiness.com/'
+  - name: Times Colonist
+    feed: 'https://www.timescolonist.com/cmlink/bc-rss-1.757'
+    url: 'https://www.timescolonist.com/'
+  - name: The Tyee
+    feed: 'https://feeds.feedblitz.com/thetyee'
+    url: 'https://thetyee.ca/'
+  - name: The Star Phoenix
+    feed: 'https://thestarphoenix.com/feed/'
+    url: 'https://thestarphoenix.com/'
+  - name: Ottawa Sun
+    feed: 'https://ottawasun.com/feed/'
+    url: 'https://ottawasun.com/'
+  - name: Business In Vancouver
+    feed: 'http://biv.com/rss'
+    url: 'https://biv.com/'
+  - name: National Observer
+    feed: 'https://www.nationalobserver.com/front/rss'
+    url: 'https://www.nationalobserver.com/'
+  - name: Regina Leader-Post
+    feed: 'https://leaderpost.com/feed/'
+    url: 'https://leaderpost.com/'
+  - name: Victoria News
+    feed: 'http://www.vicnews.com//news/index.rss'
+    url: 'https://www.vicnews.com/'
+  - name: Owen Sound Sun Times
+    feed: 'https://www.owensoundsuntimes.com/category/news/local-news/feed'
+    url: 'https://www.owensoundsuntimes.com/'
+  - name: Abbotsford News
+    feed: 'http://www.abbynews.com//news/index.rss'
+    url: 'https://www.abbynews.com/'
+  - name: North Shore News
+    feed: 'https://www.nsnews.com/cmlink/nsnw-news-rss-1.329818'
+    url: 'https://www.nsnews.com/'
+  - name: The Canadian Jewish News
+    feed: 'https://www.cjnews.com/feed'
+    url: 'https://www.cjnews.com/'
+  - name: Grande Prairie's Daily Herald Tribune
+    feed: 'https://www.dailyheraldtribune.com/feed'
+    url: 'https://www.dailyheraldtribune.com/'
+  - name: Vernon Morning Star
+    feed: 'http://www.vernonmorningstar.com/feed/'
+    url: 'https://www.vernonmorningstar.com/'
+  - name: Kelowna Capital News
+    feed: 'http://www.kelownacapnews.com/feed/'
+    url: 'https://www.kelownacapnews.com/'
+  - name: Rabble.ca
+    feed: 'https://rabble.ca/rss.xml'
+    url: 'https://rabble.ca/'
+  - name: Torontoist
+    feed: 'https://torontoist.com/feed/'
+    url: 'https://torontoist.com/'
+  - name: Startford Beacon Herald
+    feed: 'https://www.stratfordbeaconherald.com/category/news/local-news/feed'
+    url: 'https://www.stratfordbeaconherald.com/'
+  - name: Peace Arch News
+    feed: 'http://www.peacearchnews.com//news/index.rss'
+    url: 'https://www.peacearchnews.com/'
+  - name: Saanich News
+    feed: 'http://www.saanichnews.com//news/index.rss'
+    url: 'https://www.saanichnews.com/'
+  - name: The Daily Scrum News
+    feed: 'https://www.thedailyscrum.ca/feed'
+    url: 'https://www.thedailyscrum.ca/'
+  - name: Northern Currents
+    feed: 'https://northerncurrents.ca/feed'
+    url: 'https://northerncurrents.ca/'
+  - name: Oakville News
+    feed: 'https://oakvillenews.org/feed'
+    url: 'https://oakvillenews.org/'
+  - name: Campbell River Mirror
+    feed: 'http://www.campbellrivermirror.com/feed/'
+    url: 'https://www.campbellrivermirror.com/'
+  - name: Agassiz Observer
+    feed: 'http://www.agassizharrisonobserver.com//news/index.rss'
+    url: 'https://www.agassizharrisonobserver.com/'
+  - name: Oakville News
+    feed: 'http://oakvillenews.org/feed'
+    url: 'https://oakvillenews.org/'
+  - name: Prince Albert Daily Herald
+    feed: 'https://paherald.sk.ca/feed'
+    url: 'https://paherald.sk.ca/'
+  - name: Osoyoos Times
+    feed: 'https://www.osoyoostimes.com/feed/'
+    url: 'https://www.osoyoostimes.com/'
+  - name: Mississauga Gazette
+    feed: >-
+      http://www.mississaugagazette.com/news_rss_feed?tags=1711241,2250682,1791851,1763528,2184805,2243435,1848034,1726156,1795459,2199695,1879626,1879687,2110490,1706286,1950290,1881106,2258082,1682836,1729180,1879472,2199179,2366782
+    url: 'http://www.mississaugagazette.com/'
+  - name: Kimberley Bulletin
+    feed: 'http://www.kimberleybulletin.com//news/index.rss'
+    url: 'https://www.kimberleybulletin.com/'
+  - name: Urban Canada Hype
+    feed: 'http://urbancanadahype.com/feed'
+    url: 'http://urbancanadahype.com/'
+  - name: Peachland View
+    feed: 'https://www.peachlandview.com/feed/'
+    url: 'https://www.peachlandview.com/'
+  - name: Burns Lake District News
+    feed: 'http://www.burnslakelakesdistrictnews.com//news/index.rss'
+    url: 'https://www.burnslakelakesdistrictnews.com/'
+  - name: Barriere Star Journal
+    feed: 'http://www.starjournal.net//news/index.rss'
+    url: 'http://www.starjournal.net/'
+  - name: Sunny South News
+    feed: 'http://www.sunnysouthnews.com/feed/'
+    url: 'http://www.sunnysouthnews.com/'
+  - name: The Pot Hole News
+    feed: 'https://thepotholenews.ca/feed'
+    url: 'https://thepotholenews.ca/'
+  - name: Langley Advance
+    feed: 'http://www.langleyadvance.com//news/index.rss'
+    url: 'http://www.langleyadvance.com/'
+  - name: Pembroke Daily Observer
+    feed: 'https://www.pembrokeobserver.com/category/news/local-news/feed'
+    url: 'https://www.pembrokeobserver.com/'
+  - name: The Maritime Anchor
+    feed: 'https://maritimeanchor.ca/feed'
+    url: 'https://maritimeanchor.ca/'
+  - name: Stand For Freedom
+    feed: 'https://standforfreedom.ca/feed'
+    url: 'https://standforfreedom.ca/'
+  - name: Telecast
+    feed: 'http://telecast.ca/feed/'
+    url: 'http://telecast.ca/'

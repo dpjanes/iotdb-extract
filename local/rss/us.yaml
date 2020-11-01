@@ -1,0 +1,228 @@
+name: USA News RSS Feeds
+feeds:
+  - name: 'CNN - Breaking News, Latest News and Videos'
+    feed: 'http://rss.cnn.com/rss/cnn_topstories.rss'
+    url: 'https://us.cnn.com/'
+  - name: The New York Times
+    feed: 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
+    url: 'https://www.nytimes.com/'
+  - name: The Huffington Post
+    feed: 'https://www.huffpost.com/section/front-page/feed?x=1'
+    url: 'https://www.huffpost.com/'
+  - name: Fox News
+    feed: 'http://feeds.foxnews.com/foxnews/latest'
+    url: 'https://www.foxnews.com/'
+  - name: USA TODAY
+    feed: 'http://rssfeeds.usatoday.com/UsatodaycomNation-TopStories'
+    url: 'https://www.usatoday.com/'
+  - name: Reuters » U.S. News
+    feed: 'http://feeds.reuters.com/Reuters/domesticNews'
+    url: 'https://www.reuters.com/news/us'
+  - name: POLITICO
+    feed: 'http://www.politico.com/rss/politicopicks.xml'
+    url: 'https://www.politico.com/'
+  - name: Yahoo News
+    feed: 'https://www.yahoo.com/news/rss'
+    url: 'https://www.yahoo.com/news/'
+  - name: NPR News
+    feed: 'http://www.npr.org/rss/rss.php?id=1001'
+    url: 'https://www.npr.org/'
+  - name: 'Los Angeles Times '
+    feed: 'https://www.latimes.com/local/rss2.0.xml'
+    url: 'https://www.latimes.com/california'
+  - name: Breitbart News Network
+    feed: 'http://feeds.feedburner.com/breitbart'
+    url: 'https://www.breitbart.com/'
+  - name: New York Post
+    feed: 'https://nypost.com/feed/'
+    url: 'https://nypost.com/'
+  - name: 'ABC News » Top Stories'
+    feed: 'http://feeds.abcnews.com/abcnews/topstories'
+    url: 'https://abcnews.go.com/'
+  - name: NBC News
+    feed: 'http://www.nbcnews.com/id/3032091/device/rss/rss.xml'
+    url: 'https://www.nbcnews.com/'
+  - name: CBS News
+    feed: 'http://www.cbsnews.com/feeds/rss/main.rss'
+    url: 'https://www.cbsnews.com/'
+  - name: CBS Philly
+    feed: 'https://philadelphia.cbslocal.com/feed/'
+    url: 'https://philadelphia.cbslocal.com/'
+  - name: CBS Chicago
+    feed: 'https://chicago.cbslocal.com/feed/'
+    url: 'https://chicago.cbslocal.com/'
+  - name: CBS Boston
+    feed: 'https://boston.cbslocal.com/feed/'
+    url: 'https://boston.cbslocal.com/'
+  - name: CBS New York
+    feed: 'https://newyork.cbslocal.com/feed/'
+    url: 'https://newyork.cbslocal.com/'
+  - name: CBS Los Angeles
+    feed: 'https://losangeles.cbslocal.com/feed/'
+    url: 'https://losangeles.cbslocal.com/'
+  - name: WCCO - CBS Minnesota
+    feed: 'https://minnesota.cbslocal.com/feed/'
+    url: 'https://minnesota.cbslocal.com/'
+  - name: CBS Detroit
+    feed: 'https://detroit.cbslocal.com/feed/'
+    url: 'https://detroit.cbslocal.com/'
+  - name: CBS Dallas Fort Worth
+    feed: 'https://dfw.cbslocal.com/feed/'
+    url: 'https://dfw.cbslocal.com/'
+  - name: CBS San Francisco
+    feed: 'https://sanfrancisco.cbslocal.com/feed/'
+    url: 'https://sanfrancisco.cbslocal.com/'
+  - name: CBS Tampa
+    feed: 'https://tampa.cbslocal.com/feed/'
+    url: 'https://tampa.cbslocal.com/'
+  - name: CBS Washington
+    feed: 'https://washington.cbslocal.com/feed/'
+    url: 'https://washington.cbslocal.com/'
+  - name: Newsweek
+    feed: 'http://www.newsweek.com/rss'
+    url: 'https://www.newsweek.com/'
+  - name: New York Daily News » Top Stories
+    feed: 'https://www.nydailynews.com/index_rss.xml'
+    url: 'https://www.nydailynews.com/'
+  - name: Chicago Tribune
+    feed: 'https://www.chicagotribune.com/rss2.0.xml'
+    url: 'https://www.chicagotribune.com/'
+  - name: The Denver Post
+    feed: 'https://www.denverpost.com/feed/'
+    url: 'https://www.denverpost.com/'
+  - name: Boston.com
+    feed: 'https://www.boston.com/feed'
+    url: 'https://www.boston.com/'
+  - name: The Seattle Times
+    feed: 'https://www.seattletimes.com/feed/'
+    url: 'https://www.seattletimes.com/'
+  - name: The Mercury News
+    feed: 'https://www.mercurynews.com/feed/'
+    url: 'https://www.mercurynews.com/'
+  - name: The Washington Times
+    feed: 'http://www.washingtontimes.com/rss/headlines/news/'
+    url: 'https://www.washingtontimes.com/'
+  - name: Miami Herald
+    feed: >-
+      https://www.miamiherald.com/news/?widgetName=rssfeed&widgetContentId=712015&getXmlFeed=true/feed
+    url: 'https://www.miamiherald.com/'
+  - name: The Intercept
+    feed: 'https://theintercept.com/feed/?lang=en'
+    url: 'https://theintercept.com/'
+  - name: The Onion
+    feed: 'http://www.theonion.com/feeds/rss'
+    url: 'https://www.theonion.com/'
+  - name: KTLA
+    feed: 'https://ktla.com/feed/'
+    url: 'https://ktla.com/'
+  - name: Chicago Sun-Times
+    feed: 'https://chicago.suntimes.com/rss/index.xml'
+    url: 'https://chicago.suntimes.com/'
+  - name: ABC7 News » San Francisco Music
+    feed: 'https://abc7news.com/feed/'
+    url: 'https://abc7news.com/tag/music/'
+  - name: 'ABC13 Houston'
+    feed: 'https://abc13.com/feed/'
+    url: 'https://abc13.com/'
+  - name: Observer
+    feed: 'https://observer.com/feed/'
+    url: 'https://observer.com/'
+  - name: 'Gothamist'
+    feed: 'https://gothamist.com/feed'
+    url: 'https://gothamist.com/'
+  - name: WTOP
+    feed: 'https://wtop.com/feed/'
+    url: 'https://wtop.com/'
+  - name: WGN-TV
+    feed: 'https://wgntv.com/feed/'
+    url: 'https://wgntv.com/'
+  - name: 'KXAN News'
+    feed: 'https://www.kxan.com/feed/'
+    url: 'https://www.kxan.com/'
+  - name: 'Daily Herald'
+    feed: 'https://www.dailyherald.com/rss/feed/?feed=news_top5'
+    url: 'https://www.dailyherald.com/'
+  - name: Automotive News
+    feed: 'https://www.autonews.com/section/rss/news?topics=48856'
+    url: 'https://www.autonews.com/'
+  - name: WFLA WFLA News Channel 8 On Your Side in Tampa Bay Florida
+    feed: 'https://www.wfla.com/feed/'
+    url: 'https://www.wfla.com/'
+  - name: Boston Herald
+    feed: 'https://www.bostonherald.com/feed/'
+    url: 'https://www.bostonherald.com/'
+  - name: Seattlepi
+    feed: 'https://www.seattlepi.com/local/feed/seattlepi-com-Local-News-218.php'
+    url: 'https://www.seattlepi.com/'
+  - name: Westword
+    feed: 'https://www.westword.com/index.rss'
+    url: 'https://www.westword.com/'
+  - name: KRON4.com
+    feed: 'https://www.kron4.com/feed/'
+    url: 'https://www.kron4.com/'
+  - name: FOX31 Denver KDVR
+    feed: 'https://kdvr.com/feed/'
+    url: 'https://kdvr.com/'
+  - name: 'WSVN 7 News Miami '
+    feed: 'https://wsvn.com/feed/'
+    url: 'https://wsvn.com/news/'
+  - name: Pioneer Press
+    feed: 'https://www.twincities.com/feed/'
+    url: 'https://www.twincities.com/'
+  - name: PhillyVoice
+    feed: 'https://www.phillyvoice.com/feed/'
+    url: 'https://www.phillyvoice.com/'
+  - name: 'FOX5 San Diego '
+    feed: 'https://fox5sandiego.com/feed/'
+    url: 'https://fox5sandiego.com/'
+  - name: 'L.A. Weekly'
+    feed: 'https://www.laweekly.com/feed/'
+    url: 'https://www.laweekly.com/'
+  - name: FOX2now
+    feed: 'https://fox2now.com/feed/'
+    url: 'https://fox2now.com/'
+  - name: The Arlington Advocate
+    feed: 'http://arlington.wickedlocal.com/rss'
+    url: 'https://arlington.wickedlocal.com/'
+  - name: Miami New Times
+    feed: 'https://www.miaminewtimes.com/index.rss'
+    url: 'https://www.miaminewtimes.com/'
+  - name: The Press-Enterprise
+    feed: 'https://www.pe.com/feed/'
+    url: 'https://www.pe.com/'
+  - name: Phoenix New Times
+    feed: 'https://www.phoenixnewtimes.com/index.rss'
+    url: 'https://www.phoenixnewtimes.com/'
+  - name: Riverfront Times
+    feed: 'http://www.riverfronttimes.com/stlouis/Rss.xml'
+    url: 'https://www.riverfronttimes.com/'
+  - name: 7News Boston WHDH
+    feed: 'https://whdh.com/feed/'
+    url: 'https://whdh.com/'
+  - name: WIVB-TV
+    feed: 'https://www.wivb.com/feed/'
+    url: 'https://www.wivb.com/'
+  - name: Village Voice
+    feed: 'https://www.villagevoice.com/index.rss'
+    url: 'https://www.villagevoice.com/'
+  - name: MinnPost
+    feed: 'https://www.minnpost.com/rss.xml'
+    url: 'https://www.minnpost.com/'
+  - name: Times of San Diego
+    feed: 'http://timesofsandiego.com/feed/'
+    url: 'https://timesofsandiego.com/'
+  - name: Chicago Reader
+    feed: 'https://www.chicagoreader.com/chicago/Rss.xml'
+    url: 'https://www.chicagoreader.com/'
+  - name: WorldTruth.TV
+    feed: 'https://worldtruth.tv/feed/'
+    url: 'https://worldtruth.tv/'
+  - name: Detroit Metro Times
+    feed: 'http://www.metrotimes.com/detroit/Rss.xml'
+    url: 'https://www.metrotimes.com/'
+  - name: Houston Press
+    feed: 'https://www.houstonpress.com/index.rss'
+    url: 'https://www.houstonpress.com/'
+  - name: NEWS10 ABC
+    feed: 'https://www.news10.com/feed/'
+    url: 'https://www.news10.com/'

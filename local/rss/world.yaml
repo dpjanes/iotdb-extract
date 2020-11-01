@@ -1,0 +1,228 @@
+name: World News RSS Feeds
+feeds:
+  - name: BBC News » World
+    feed: 'http://feeds.bbci.co.uk/news/world/rss.xml'
+    url: 'https://www.bbc.com/news/world'
+  - name: 'The New York Times'
+    feed: >-
+      https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml
+    url: 'https://www.nytimes.com/section/world'
+  - name: BuzzFeed » World
+    feed: 'https://www.buzzfeed.com/world.xml'
+    url: 'https://www.buzzfeednews.com/section/world'
+  - name: 'Al Jazeera '
+    feed: 'http://www.aljazeera.com/xml/rss/all.xml'
+    url: 'https://www.aljazeera.com/'
+  - name: 'Defence Blog '
+    feed: 'http://defence-blog.com/feed'
+    url: 'https://defence-blog.com/'
+  - name: E-International Relations
+    feed: 'https://www.e-ir.info/category/blogs/feed/'
+    url: 'https://www.e-ir.info/category/blogs/'
+  - name: Global Issues
+    feed: 'http://www.globalissues.org/news/feed'
+    url: 'http://www.globalissues.org/'
+  - name: The Cipher Brief
+    feed: 'https://www.thecipherbrief.com/feed'
+    url: 'https://www.thecipherbrief.com/'
+  - name: Yahoo News - World
+    feed: 'https://www.yahoo.com/news/world/rss'
+    url: 'https://www.yahoo.com/news/world/'
+  - name: 'WorldNewsSuperFast.Com '
+    feed: 'https://worldnewssuperfast.blogspot.com/feeds/posts/default?alt=rss'
+    url: 'https://worldnewssuperfast.blogspot.com/'
+  - name: Reddit - World News
+    feed: 'https://www.reddit.com/r/worldnews/.rss'
+    url: 'https://www.reddit.com/r/worldnews/'
+  - name: CNN » World
+    feed: 'http://rss.cnn.com/rss/edition_world.rss'
+    url: 'https://edition.cnn.com/world'
+  - name: Times of India » World
+    feed: 'https://timesofindia.indiatimes.com/rssfeeds/296589292.cms'
+    url: 'https://timesofindia.indiatimes.com/world'
+  - name: 'The Guardian » World '
+    feed: 'https://www.theguardian.com/world/rss'
+    url: 'https://www.theguardian.com/world'
+  - name: Washington Post » World
+    feed: 'http://feeds.washingtonpost.com/rss/world'
+    url: 'https://www.washingtonpost.com/world/'
+  - name: CNBC - World
+    feed: 'https://www.cnbc.com/id/100727362/device/rss/rss.html'
+    url: 'https://www.cnbc.com/world/'
+  - name: RT News
+    feed: 'https://www.rt.com/rss/news/'
+    url: 'https://www.rt.com/news/'
+  - name: NDTV - World news
+    feed: 'http://feeds.feedburner.com/ndtvnews-world-news'
+    url: 'https://www.ndtv.com/world-news'
+  - name: Reuters » World News
+    feed: 'http://feeds.reuters.com/Reuters/worldNews'
+    url: 'https://in.reuters.com/news/world'
+  - name: ' NPR:National Public Radio - World'
+    feed: 'http://www.npr.org/rss/rss.php?id=1004'
+    url: 'https://www.npr.org/sections/world/'
+  - name: ABC News - International
+    feed: 'http://abcnews.go.com/abcnews/internationalheadlines'
+    url: 'https://abcnews.go.com/International'
+  - name: Sputnik - World
+    feed: 'https://sputniknews.com/export/rss2/world/index.xml'
+    url: 'https://sputniknews.com/world/'
+  - name: SPIEGEL ONLINE - International
+    feed: 'https://www.spiegel.de/international/index.rss'
+    url: 'https://www.spiegel.de/international/'
+  - name: 'CBS News » World '
+    feed: 'https://www.cbsnews.com/latest/rss/world'
+    url: 'https://www.cbsnews.com/world/'
+  - name: ABC Australia - World
+    feed: 'https://www.abc.net.au/news/feed/52278/rss.xml'
+    url: 'https://www.abc.net.au/news/world/'
+  - name: ' The Independent - World '
+    feed: 'http://www.independent.co.uk/news/world/rss'
+    url: 'https://www.independent.co.uk/news/world'
+  - name: The Sun » World News
+    feed: 'https://www.thesun.co.uk/news/worldnews/feed/'
+    url: 'https://www.thesun.co.uk/news/worldnews/'
+  - name: CBC » World News
+    feed: 'http://www.cbc.ca/cmlink/rss-world'
+    url: 'https://www.cbc.ca/news/world'
+  - name: TIME - World
+    feed: 'http://feeds.feedburner.com/time/world'
+    url: 'https://time.com/section/world/'
+  - name: TIME
+    feed: 'https://time.com/feed'
+    url: 'https://time.com/'
+  - name: 'Los Angeles Times » World '
+    feed: 'https://www.latimes.com/world/rss2.0.xml'
+    url: 'https://www.latimes.com/world-nation'
+  - name: Daily Mirror - World news
+    feed: 'http://www.mirror.co.uk/news/world-news/rss.xml'
+    url: 'https://www.mirror.co.uk/news/world-news/'
+  - name: Daily Express » World News
+    feed: 'http://feeds.feedburner.com/daily-express-world-news'
+    url: 'https://www.express.co.uk/news/world'
+  - name: Sky News - World
+    feed: 'http://feeds.skynews.com/feeds/rss/world.xml'
+    url: 'https://news.sky.com/world'
+  - name: Euronews - International
+    feed: 'https://www.euronews.com/rss?level=theme&name=news'
+    url: 'https://www.euronews.com/news/international'
+  - name: Vox - World
+    feed: 'https://www.vox.com/rss/world/index.xml'
+    url: 'https://www.vox.com/world'
+  - name: 'The Sydney Morning Herald - World '
+    feed: 'http://www.smh.com.au/rssheadlines/world/article/rss.xml'
+    url: 'https://www.smh.com.au/world'
+  - name: South China Morning Post
+    feed: 'https://www.scmp.com/rss/91/feed'
+    url: 'https://www.scmp.com/'
+  - name: ' CTV News » World'
+    feed: 'https://www.ctvnews.ca/rss/world/ctvnews-ca-world-public-rss-1.822289'
+    url: 'https://www.ctvnews.ca/world'
+  - name: News24 - World
+    feed: 'http://feeds.news24.com/articles/news24/World/rss'
+    url: 'https://www.news24.com/World'
+  - name: France 24
+    feed: 'https://www.france24.com/en/rss'
+    url: 'https://www.france24.com/en/'
+  - name: Channel NewsAsia - World
+    feed: 'http://www.channelnewsasia.com/rssfeeds/8395884'
+    url: 'https://www.channelnewsasia.com/news/world'
+  - name: Global News - World
+    feed: 'https://globalnews.ca/world/feed/'
+    url: 'https://globalnews.ca/world/'
+  - name: Dkoding
+    feed: 'https://www.dkoding.in/feed/'
+    url: 'https://www.dkoding.in/'
+  - name: 'The Seattle Times - World '
+    feed: 'https://www.seattletimes.com/nation-world/world/feed/'
+    url: 'https://www.seattletimes.com/nation-world/world/'
+  - name: Raw Story - World
+    feed: 'https://www.rawstory.com/category/world/feed/'
+    url: 'https://www.rawstory.com/category/world/'
+  - name: TORONTO STAR - World
+    feed: 'https://www.thestar.com/feeds.articles.news.world.rss'
+    url: 'https://www.thestar.com/news/world.html'
+  - name: The Washington Times - World
+    feed: 'http://www.washingtontimes.com/rss/headlines/news/world'
+    url: 'https://www.washingtontimes.com/news/world/'
+  - name: Brookings
+    feed: 'https://www.brookings.edu/topic/international-affairs/feed/'
+    url: 'https://www.brookings.edu/topic/international-affairs/'
+  - name: Today's World Truth
+    feed: 'https://paper.li/~api/papers/b9243f30-82ec-012f-25ad-12313d16b843/rss'
+    url: 'https://paper.li/ThingsAboutGod/1335997290#/'
+  - name: Today Online - World
+    feed: 'https://www.todayonline.com/feed/world'
+    url: 'https://www.todayonline.com/world'
+  - name: 'Daily Telegraph - World '
+    feed: 'https://www.dailytelegraph.com.au/news/world/rss'
+    url: 'http://www.dailytelegraph.com.au/news/world'
+  - name: BreakingNews - World
+    feed: 'https://feeds.breakingnews.ie/bnworld'
+    url: 'https://www.breakingnews.ie/world/'
+  - name: The Internet Protocol
+    feed: 'https://internetprotocol.co/rss'
+    url: 'https://internetprotocol.co/'
+  - name: CBN News - World
+    feed: 'http://www1.cbn.com/cbnnews/world/feed'
+    url: 'https://www1.cbn.com/cbnnews/cwn'
+  - name: Christian Science Monitor - World
+    feed: 'https://rss.csmonitor.com/feeds/world'
+    url: 'https://www.csmonitor.com/World'
+  - name: RAND
+    feed: 'https://www.rand.org/topics/international-affairs.xml/feed'
+    url: 'https://www.rand.org/topics/international-affairs.html'
+  - name: Public Radio International
+    feed: 'https://www.pri.org/stories/feed/everything'
+    url: 'https://www.pri.org/'
+  - name: World's Top Exports
+    feed: 'http://www.worldstopexports.com/feed'
+    url: 'http://www.worldstopexports.com/'
+  - name: ' Kuwait Today - Keep Track of the Latest Activities and Events in Kuwait'
+    feed: 'https://kwttoday.com/feed/'
+    url: 'https://kwttoday.com/'
+  - name: War on the Rocks
+    feed: 'https://warontherocks.com/feed/'
+    url: 'https://warontherocks.com/'
+  - name: The Daniels Post World
+    feed: 'https://danielspost.news.blog/feed/'
+    url: 'https://danielspost.news.blog/'
+  - name: The Eastern Herald
+    feed: 'https://www.easternherald.com/feed/'
+    url: 'https://www.easternherald.com/'
+  - name: Editorialge
+    feed: 'https://editorialge.com/feed'
+    url: 'https://editorialge.com/'
+  - name: The Union Journal
+    feed: 'https://theunionjournal.com/feed'
+    url: 'https://theunionjournal.com/'
+  - name: IFP News
+    feed: 'http://ifpnews.com/feed'
+    url: 'https://ifpnews.com/'
+  - name: Cosmic Times
+    feed: 'https://cosmic-times.com/feed'
+    url: 'https://cosmic-times.com/'
+  - name: The World Association of Newspapers - IFRA
+    feed: 'https://blog.wan-ifra.org/feed/index.rss'
+    url: 'https://blog.wan-ifra.org/'
+  - name: Radarr Africa
+    feed: 'https://radarr.africa/feed'
+    url: 'https://radarr.africa/'
+  - name: Armenian American Reporter
+    feed: 'https://www.reporter.am/feed'
+    url: 'https://www.reporter.am/'
+  - name: The Local Spain - International
+    feed: 'https://feeds.thelocal.com/rss/es'
+    url: 'https://www.thelocal.es/international'
+  - name: 247 News Around The World
+    feed: 'https://247newsaroundtheworld.com/feed'
+    url: 'https://247newsaroundtheworld.com/'
+  - name: NewsBlaze News
+    feed: 'https://newsblaze.com/feed/'
+    url: 'https://newsblaze.com/'
+  - name: WORLD News Group - International
+    feed: 'https://world.wng.org/taxonomy/term/72/feed'
+    url: 'https://world.wng.org/categories/international'
+  - name: 'New Europe - World '
+    feed: 'https://www.neweurope.eu/category/world/feed/'
+    url: 'https://www.neweurope.eu/category/world/'

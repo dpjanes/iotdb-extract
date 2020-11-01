@@ -48,7 +48,6 @@ _.promise({
         const $ = cheerio.load(sd.document)
         sd.json = {
             name: null,
-            url: sd.url,
             feeds: []
         }
 

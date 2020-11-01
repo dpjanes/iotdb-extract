@@ -1,0 +1,185 @@
+name: UK News RSS Feeds
+feeds:
+  - name: BBC News » UK
+    feed: 'http://feeds.bbci.co.uk/news/uk/rss.xml'
+    url: 'https://www.bbc.com/news/uk'
+  - name: The Guardian'
+    feed: 'https://www.theguardian.com/uk/rss'
+    url: 'https://www.theguardian.com/uk'
+  - name: Daily Mail Online » Popular Stories
+    feed: 'http://www.dailymail.co.uk/home/index.rss'
+    url: 'https://www.dailymail.co.uk/home/index.html'
+  - name: The Telegraph » Top stories
+    feed: 'https://www.telegraph.co.uk/rss.xml'
+    url: 'https://www.telegraph.co.uk/'
+  - name: The Independent » Top Stories
+    feed: 'http://www.independent.co.uk/rss'
+    url: 'https://www.independent.co.uk/'
+  - name: Daily Mirror
+    feed: 'https://www.mirror.co.uk/?service=rss'
+    url: 'https://www.mirror.co.uk/'
+  - name: The Sun
+    feed: 'https://www.thesun.co.uk/feed/'
+    url: 'https://www.thesun.co.uk/'
+  - name: Daily Express
+    feed: 'http://feeds.feedburner.com/daily-express-news-showbiz'
+    url: 'https://www.express.co.uk/news'
+  - name: Metro
+    feed: 'https://metro.co.uk/feed/'
+    url: 'https://metro.co.uk/'
+  - name: Channel 4 News
+    feed: 'https://www.channel4.com/news/feed'
+    url: 'https://www.channel4.com/news/'
+  - name: 'The Huffington Post '
+    feed: 'http://www.huffingtonpost.co.uk/feeds/index.xml'
+    url: 'https://www.huffingtonpost.co.uk/'
+  - name: Independent.ie
+    feed: 'https://www.independent.ie/rss/'
+    url: 'https://www.independent.ie/'
+  - name: Evening Standard
+    feed: 'http://www.standard.co.uk/rss'
+    url: 'https://www.standard.co.uk/'
+  - name: The Irish Times
+    feed: 'https://www.irishtimes.com/cmlink/news-1.1319192'
+    url: 'https://www.irishtimes.com/'
+  - name: Manchester Evening News (MEN)
+    feed: 'https://www.manchestereveningnews.co.uk/?service=rss'
+    url: 'https://www.manchestereveningnews.co.uk/'
+  - name: The Conversation
+    feed: 'http://theconversation.com/uk/articles.atom'
+    url: 'http://theconversation.com/uk'
+  - name: The Daily Record
+    feed: 'https://www.dailyrecord.co.uk/news/?service=rss'
+    url: 'https://www.dailyrecord.co.uk/news/'
+  - name: Birmingham Mail
+    feed: 'https://www.birminghammail.co.uk/?service=rss'
+    url: 'https://www.birminghammail.co.uk/'
+  - name: Wired UK
+    feed: 'http://www.wired.co.uk/rss'
+    url: 'https://www.wired.co.uk/'
+  - name: Belfast Telegraph
+    feed: 'https://www.belfasttelegraph.co.uk/rss/'
+    url: 'https://www.belfasttelegraph.co.uk/'
+  - name: BreakingNews.ie
+    feed: 'https://feeds.breakingnews.ie/bntopstories'
+    url: 'https://www.breakingnews.ie/'
+  - name: WalesOnline
+    feed: 'https://www.walesonline.co.uk/?service=rss'
+    url: 'https://www.walesonline.co.uk/'
+  - name: 'HuffPost UK '
+    feed: 'https://www.huffingtonpost.co.uk/feeds/index.xml'
+    url: 'https://www.huffingtonpost.co.uk/'
+  - name: PinkNews
+    feed: 'https://www.pinknews.co.uk/feed/'
+    url: 'https://www.pinknews.co.uk/'
+  - name: 'Grimsby Telegraph '
+    feed: 'https://www.grimsbytelegraph.co.uk/news/?service=rss'
+    url: 'https://www.grimsbytelegraph.co.uk/news/'
+  - name: The Week UK Magazine
+    feed: 'http://www.theweek.co.uk/feeds/all'
+    url: 'https://www.theweek.co.uk/'
+  - name: 'The Scottish Sun'
+    feed: 'https://www.thescottishsun.co.uk/feed/'
+    url: 'https://www.thescottishsun.co.uk/'
+  - name: The Argus
+    feed: 'https://www.theargus.co.uk/news/rss/'
+    url: 'https://www.theargus.co.uk/news/'
+  - name: The York Press'
+    feed: 'https://www.yorkpress.co.uk/news/rss/'
+    url: 'https://www.yorkpress.co.uk/news/'
+  - name: The Northern Echo'
+    feed: 'https://www.thenorthernecho.co.uk/news/rss/'
+    url: 'https://www.thenorthernecho.co.uk/news/'
+  - name: The Bolton News'
+    feed: 'https://www.theboltonnews.co.uk/news/rss/'
+    url: 'https://www.theboltonnews.co.uk/news/'
+  - name: Herald Scotland'
+    feed: 'https://www.heraldscotland.com/news/rss/'
+    url: 'https://www.heraldscotland.com/news/'
+  - name: Cambridge News
+    feed: 'http://www.cambridge-news.co.uk/rss.xml'
+    url: 'https://www.cambridge-news.co.uk/'
+  - name: Deadline News'
+    feed: 'http://www.deadlinenews.co.uk/feed/'
+    url: 'http://www.deadlinenews.co.uk/'
+  - name: The Poke
+    feed: 'https://www.thepoke.co.uk/feed/'
+    url: 'https://www.thepoke.co.uk/'
+  - name: The Daily Mash
+    feed: 'https://www.thedailymash.co.uk/feed'
+    url: 'https://www.thedailymash.co.uk/'
+  - name: Belfast Live
+    feed: 'http://www.belfastlive.co.uk/rss.xml'
+    url: 'https://www.belfastlive.co.uk/'
+  - name: Positive News
+    feed: 'https://www.positive.news/feed/'
+    url: 'https://www.positive.news/'
+  - name: News UK
+    feed: 'https://www.news.co.uk/feed/'
+    url: 'https://www.news.co.uk/'
+  - name: Politicalite'
+    feed: 'https://www.politicalite.com/feed/'
+    url: 'https://www.politicalite.com/'
+  - name: Scottish Field
+    feed: 'https://www.scottishfield.co.uk/feed/'
+    url: 'https://www.scottishfield.co.uk/'
+  - name: SurgeZirc UK
+    feed: 'https://surgezirc.co.uk/feed'
+    url: 'https://surgezirc.co.uk/'
+  - name: 'Consett Magazine '
+    feed: 'https://consettmagazine.com/feed/'
+    url: 'https://consettmagazine.com/'
+  - name: Breaking News Today
+    feed: 'https://www.breakingnewstoday.co.uk/feed'
+    url: 'https://www.breakingnewstoday.co.uk/'
+  - name: The Evening Times'
+    feed: 'http://www.eveningtimes.co.uk/news/rss'
+    url: 'https://www.eveningtimes.co.uk/news/'
+  - name: Trax News
+    feed: 'https://www.traxnews.org/feed'
+    url: 'https://www.traxnews.org/'
+  - name: Newsnet.scot
+    feed: 'https://newsnet.scot/feed/'
+    url: 'https://newsnet.scot/'
+  - name: SWD Media'
+    feed: 'https://swd.media/feed/'
+    url: 'https://swd.media/'
+  - name: Daily Politics
+    feed: 'https://www.dailypolitics.com/feed.xml'
+    url: 'https://www.dailypolitics.com/'
+  - name: The Church of England Newspaper
+    feed: 'https://www.churchnewspaper.com/feed'
+    url: 'https://www.churchnewspaper.com/'
+  - name: Investor Times
+    feed: 'https://www.investortimes.co.uk/feed/'
+    url: 'https://www.investortimes.co.uk/'
+  - name: Daily Echo
+    feed: 'https://www.dailyecho.co.uk/news/rss/'
+    url: 'https://www.dailyecho.co.uk/news/'
+  - name: The News Alerts
+    feed: 'http://thenewsalerts.co.uk/index.php/feed'
+    url: 'http://thenewsalerts.co.uk/'
+  - name: KentNews.Online
+    feed: 'https://www.kentnews.online/feed'
+    url: 'https://www.kentnews.online/'
+  - name: The Scotsman » News
+    feed: 'http://www.scotsman.com/rss/cmlink/1.3942642'
+    url: 'https://www.scotsman.com/news'
+  - name: 'The News, Portsmouth'
+    feed: 'https://www.portsmouth.co.uk/rss/cmlink/1.7167516'
+    url: 'https://www.portsmouth.co.uk/'
+  - name: 'Larne Times '
+    feed: 'https://www.larnetimes.co.uk/rss/cmlink/1.7646352'
+    url: 'https://www.larnetimes.co.uk/news'
+  - name: Coleraine Times
+    feed: 'https://www.colerainetimes.co.uk/rss/cmlink/1.7657032'
+    url: 'https://www.colerainetimes.co.uk/news'
+  - name: 'NECN '
+    feed: 'https://www.necn.com/news/top-stories/?rss=y'
+    url: 'https://www.necn.com/'
+  - name: 'The Scarborough News '
+    feed: 'https://www.thescarboroughnews.co.uk/rss/cmlink/1.8109093'
+    url: 'https://www.thescarboroughnews.co.uk/'
+  - name: The Voice
+    feed: 'https://www.voice-online.co.uk/rss.xml/'
+    url: 'https://www.voice-online.co.uk/'

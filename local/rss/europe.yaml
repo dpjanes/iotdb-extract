@@ -1,0 +1,38 @@
+name: European News RSS Feeds
+feeds:
+  - name: Euronews
+    feed: 'http://feeds.feedburner.com/euronews/en/home/'
+    url: 'https://www.euronews.com/'
+  - name: POLITICO Europe
+    feed: 'http://www.politico.eu/feed/'
+    url: 'https://www.politico.eu/'
+  - name: Trend News
+    feed: 'https://en.trend.az/feeds/index.rss'
+    url: 'https://en.trend.az/'
+  - name: EU Reporter
+    feed: 'https://www.eureporter.co/feed/'
+    url: 'https://www.eureporter.co/'
+  - name: EURACTIV
+    feed: 'https://beta.euractiv.com/feed'
+    url: 'https://www.euractiv.com/'
+  - name: 'EUobserver Magazine '
+    feed: 'https://xml.euobserver.com/rss.xml'
+    url: 'https://euobserver.com/'
+  - name: The Local Spain - International
+    feed: 'https://feeds.thelocal.com/rss/es'
+    url: 'https://www.thelocal.es/international'
+  - name: New Europe
+    feed: 'https://www.neweurope.eu/feed/'
+    url: 'https://www.neweurope.eu/'
+  - name: Radio Free Europe / Radio Liberty
+    feed: 'https://www.rferl.org/z/645/rss/feeds/posts/default'
+    url: 'https://www.rferl.org/'
+  - name: 'VoxEeurop'
+    feed: 'https://voxeurop.eu/en/feed/rss/all.xml'
+    url: 'https://voxeurop.eu/en'
+  - name: The Baltic Times
+    feed: 'http://feeds.feedburner.com/TheBalticTimesNews'
+    url: 'https://www.baltictimes.com/'
+  - name: sulonorth
+    feed: 'https://sulonorth.com/feed/'
+    url: 'https://sulonorth.com/'
