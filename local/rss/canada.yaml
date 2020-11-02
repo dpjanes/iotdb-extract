@@ -163,10 +163,6 @@ feeds:
   - name: Osoyoos Times
     feed: 'https://www.osoyoostimes.com/feed/'
     url: 'https://www.osoyoostimes.com/'
-  - name: Mississauga Gazette
-    feed: >-
-      http://www.mississaugagazette.com/news_rss_feed?tags=1711241,2250682,1791851,1763528,2184805,2243435,1848034,1726156,1795459,2199695,1879626,1879687,2110490,1706286,1950290,1881106,2258082,1682836,1729180,1879472,2199179,2366782
-    url: 'http://www.mississaugagazette.com/'
   - name: Kimberley Bulletin
     feed: 'http://www.kimberleybulletin.com//news/index.rss'
     url: 'https://www.kimberleybulletin.com/'
