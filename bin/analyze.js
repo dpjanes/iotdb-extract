@@ -49,7 +49,7 @@ _.promise({
         path: path.join(__dirname, "..", ".fs-cache"),
     },
     url: ad.url || null,
-    path: ad.path || null,
+    path: ad.file || null,
 })
     // extract
     .then(extract.initialize)
@@ -66,7 +66,7 @@ _.promise({
     .then(extract.analyze)
 
     .make(sd => {
-        console.log(JSON.stringify(sd.rule, null, 2))
+        console.log(JSON.stringify(sd.extracts, null, 2))
     })
     .catch(error => {
         console.log("#", _.error.message(error))
