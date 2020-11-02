@@ -45,9 +45,10 @@ const _one_item = _.promise((self, done) => {
         .validate(_one_item)
 
         .make(sd => {
-            sd.hash = _.hash.md5(sd.json.link)
-            sd.path = path.join("outputs", sd.hostname, `${sd.hash}.json`)
+            sd.hash = _.hash.md5(sd.json.guid || sd.json.link)
+            sd.path = path.join("private", sd.hostname, `${sd.hash}.json`)
             sd.url = sd.json.link
+            sd.json$expanded = true
         })
         .then(fs.exists)
         .conditional(sd => sd.exists, _.promise.bail)
@@ -58,7 +59,7 @@ const _one_item = _.promise((self, done) => {
         .then(fetch.document)
         .then(document.to.string.utf8) // just in case
         .make(sd => {
-            sd.path = path.join("outputs", sd.hostname, `${sd.hash}.html`)
+            sd.path = path.join("private", sd.hostname, `${sd.hash}.html`)
         })
         .then(fs.write.utf8)
         .log("wrote", "path")
@@ -104,7 +105,7 @@ const _one_feed = _.promise((self, done) => {
                 }
 
                 sd.items = parsed.items
-                sd.items.length = Math.max(10, sd.items.length)
+                sd.items.length = Math.min(10, sd.items.length)
                 return sdone(null, sd)
             })
         })
@@ -144,7 +145,9 @@ _.promise({
         method: _one_feed,
         inputs: "urls:url",
         error: error => {
-            console.log("#", "error with", error.self.url, error)
+            console.log("#", "error with", error.self.url)
+            delete error.self
+            console.log(error)
         }
     })
     .catch(error => {
