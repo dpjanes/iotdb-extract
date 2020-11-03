@@ -5,22 +5,22 @@ samples:
 meta:
   language: en
 extract:
-  $content: .article .content-container
+  $select: .article .content-container
   $removes: 
   - .story-footer-link
   - "#page-end-slidebox"
-  title: 
-    root: .article h1
+  name: 
+    select: .article h1
     removes: "Congo-Kinshasa: "
   document: p
   created:
-    root: 'meta[property="article:published_time"]'
+    select: 'meta[property="article:published_time"]'
     attribute: content
-  updated:
-    root: 'meta[property="article:modified_time"]'
+  dateModified:
+    select: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[name="keywords"]'
+    select: 'meta[name="keywords"]'
     attribute: content
     split: ","
     list: true

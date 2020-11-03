@@ -4,16 +4,16 @@ samples:
   - >-
     https://www.france24.com/en/20190727-hong-kong-protesters-defy-police-ban-rally-against-suspected-gangs
 extract:
-  title: h1.t-content__title.a-page-title
+  name: h1.t-content__title.a-page-title
   document: div.t-content__body.u-clearfix
-  published:
-    root: 'meta[property="article:published_time"]'
+  datePublished:
+    select: 'meta[property="article:published_time"]'
     attribute: content
-  updated:
-    root: 'meta[property="article:modified_time"]'
+  dateModified:
+    select: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[property="article:tag"]'
+    select: 'meta[property="article:tag"]'
     attribute: content
     split: ","
     list: true

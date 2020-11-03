@@ -5,17 +5,17 @@ samples:
 meta:
   language: en
 extract:
-  $content: article.article
-  title: h1
+  $select: article.article
+  name: h1
   document: .article-wrapper p
   created:
-    root: 'meta[property="article:published_time"]'
+    select: 'meta[property="article:published_time"]'
     attribute: content
-  updated:
-    root: 'meta[property="article:modified_time"]'
+  dateModified:
+    select: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[property="article:tag"]'
+    select: 'meta[property="article:tag"]'
     attribute: content
     split: ","
     list: true

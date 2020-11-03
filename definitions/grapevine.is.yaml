@@ -3,18 +3,18 @@ urls: grapevine.is
 samples:
   - 'https://grapevine.is/mag/feature/2019/07/19/of-monsters-and-men-fever-dream/'
 extract:
-  title: 
-    root: h1
+  name: 
+    select: h1
     removes: " - The Reykjavik Grapevine"
   document: article.main-article
-  published:
-    root: 'meta[property="article:published_time"]'
+  datePublished:
+    select: 'meta[property="article:published_time"]'
     attribute: content
-  updated:
-    root: 'meta[property="article:modified_time"]'
+  dateModified:
+    select: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[property="article:tag"]'
+    select: 'meta[property="article:tag"]'
     attribute: content
     split: ','
     list: true

@@ -5,14 +5,14 @@ samples:
 meta:
   language: en
 extract:
-  $content: .main-container
-  title: h1
+  $select: .main-container
+  name: h1
   document: ".article-p-wrapper p"
-  updated:
-    root: 'meta[name="LastModifiedDate"]'
+  dateModified:
+    select: 'meta[name="LastModifiedDate"]'
     attribute: content
   keywords:
-    root: 'meta[name="news_keywords"]'
+    select: 'meta[name="news_keywords"]'
     attribute: content
     split: ","
     list: true

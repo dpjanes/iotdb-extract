@@ -5,21 +5,21 @@ samples:
 meta:
   language: en
 extract:
-  $content: .StandardArticleBody_body
+  $select: .StandardArticleBody_body
   $removes: div
-  title: 
-    root: h1
+  name: 
+    select: h1
   document: p
   keywords:
-    root: 'meta[property="og:article:tag"]'
+    select: 'meta[property="og:article:tag"]'
     attribute: content
     split: ","
     list: true
   organizations:
     removes: Reuters
   created:
-    root: 'meta[property="og:article:published_time"]'
+    select: 'meta[property="og:article:published_time"]'
     attribute: content
-  updated:
-    root: 'meta[property="og:article:modified_time"]'
+  dateModified:
+    select: 'meta[property="og:article:modified_time"]'
     attribute: content

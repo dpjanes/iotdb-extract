@@ -5,15 +5,15 @@ samples:
     https://edition.cnn.com/2019/07/27/africa/rwanda-opposition-disappearances-intl/index.html
 extract:
   document: section
-  title: h1.pg-headline
-  published:
-    root: 'meta[property="og:pubdate"]'
+  name: h1.pg-headline
+  datePublished:
+    select: 'meta[property="og:pubdate"]'
     attribute: content
-  updated:
-    root: 'meta[name="lastmod"]'
+  dateModified:
+    select: 'meta[name="lastmod"]'
     attribute: content
   keywords:
-    root: 'meta[name="keywords"]'
+    select: 'meta[name="keywords"]'
     attribute: content
     split: ","
     list: true

@@ -1,6 +1,6 @@
 - url: 'https://www.bbc.com/news/world-latin-america-45380237'
   language: en
-  title: >-
+  name: >-
     Lula: Brazil's jailed ex-leader barred from presidential race by electoral
     court
   document: >-
@@ -83,5 +83,5 @@
     Despite this, recent polls reportedly showed that around one-third of
     Brazilians would back Lula if he were allowed to run, which would make him
     the front-runner in October's vote.
-  published: '2018-09-01T05:07:49+01:00'
-  updated: '2018-09-01T05:07:49+01:00'
+  datePublished: '2018-09-01T05:07:49+01:00'
+  dateModified: '2018-09-01T05:07:49+01:00'

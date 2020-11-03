@@ -4,16 +4,16 @@ samples:
   - >-
     https://www.dailymail.co.uk/news/article-7292241/Violence-high-seas-clown-sparks-mass-brawl-aboard-P-O-cruise-liner-Britannia.html
 extract:
-  title: h1
+  name: h1
   document: div.article-text.wide.heading-tag-switch
-  published:
-    root: 'meta[property="article:published_time"]'
+  datePublished:
+    select: 'meta[property="article:published_time"]'
     attribute: content
-  updated:
-    root: 'meta[property="article:modified_time"]'
+  dateModified:
+    select: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[name="keywords"]'
+    select: 'meta[name="keywords"]'
     attribute: content
     split: ","
     list: true

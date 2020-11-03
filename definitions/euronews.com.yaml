@@ -5,18 +5,18 @@ samples:
 meta:
   language: en
 extract:
-  $content: .c-article article 
-  title: 
-    root: h1
+  $select: .c-article article 
+  name: 
+    select: h1
   document: div[itemprop="articleBody"] p
   created:
-    root: 'meta[name="date.created"]'
+    select: 'meta[name="date.created"]'
     attribute: content
-  updated:
-    root: 'meta[name="date.updated"]'
+  dateModified:
+    select: 'meta[name="date.updated"]'
     attribute: content
   keywords:
-    root: 'meta[name="news_keywords"]'
+    select: 'meta[name="news_keywords"]'
     attribute: content
     split: ","
     list: true

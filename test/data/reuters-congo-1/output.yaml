@@ -1,7 +1,7 @@
 - url: >-
     https://www.reuters.com/article/us-congo-election/congos-controversial-voting-machines-start-arriving-idUSKCN1MU0MJ
   language: en
-  title: Congo's controversial voting machines start arriving
+  name: Congo's controversial voting machines start arriving
   document: >-
     KINSHASA (Reuters) - Congo’s deputy prime minister said on Saturday that
     tablet-like voting machines for December’s election had been made to order
@@ -82,4 +82,4 @@
     - Emerging Market Countries
     - Civil Unrest
   created: '2018-10-20T14:52:09+0000'
-  updated: '2018-10-20T14:52:09+0000'
+  dateModified: '2018-10-20T14:52:09+0000'

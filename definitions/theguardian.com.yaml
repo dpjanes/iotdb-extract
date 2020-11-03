@@ -4,16 +4,16 @@ samples:
   - >-
     https://www.theguardian.com/world/2019/jul/26/us-student-reportedly-confesses-to-killing-police-officer-in-central-rome
 extract:
-  title: h1.content__headline
+  name: h1.content__headline
   document: div.content__article-body.from-content-api.js-article__body
-  published:
-    root: 'meta[property="article:published_time"]'
+  datePublished:
+    select: 'meta[property="article:published_time"]'
     attribute: content
-  updated:
-    root: 'meta[property="article:modified_time"]'
+  dateModified:
+    select: 'meta[property="article:modified_time"]'
     attribute: content
   keywords:
-    root: 'meta[name="keywords"]'
+    select: 'meta[name="keywords"]'
     attribute: content
     split: ","
     list: true
