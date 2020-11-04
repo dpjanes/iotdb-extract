@@ -23,6 +23,8 @@ const ad = minimist(process.argv.slice(2), {
     boolean: [
         "verbose", "dump", "trace", "debug",
         "cache",
+        "first", "one",
+        "json",
     ],
     string: [
         "url", 
@@ -30,6 +32,7 @@ const ad = minimist(process.argv.slice(2), {
         "_",
     ],
     alias: {
+        "one": "first",
     }, 
     default: {
         "cache": true,
@@ -55,6 +58,9 @@ one of these required:
 options:
 
 --rule <file>   read the parsing rule from this file
+
+--first         only output the first result
+--json          output the data as JSON (as opposed to YAML)
 
 --verbose       increase debugging information
 --no-cache      don't cache URL fetch
@@ -115,13 +121,31 @@ _.promise({
             _.keys(json)
                 .filter(key => key.startsWith("_"))
                 .forEach(key => delete json[key])
-
-            console.log("--")
-            console.log(yaml.safeDump(json, {
-                sortKeys: true,
-            }))
-
         })
+
+        if (ad.one) {
+            if (ad.json) {
+                console.log(JSON.stringify(sd.jsons[0] || null, null, 2))
+            } else if (sd.jsons.length) {
+                console.log("--")
+                console.log(yaml.safeDump(jsons[0], {
+                    sortKeys: true,
+                }))
+            } else {
+                console.log("--")
+            }
+        } else {
+            if (ad.json) {
+                console.log(JSON.stringify(sd.jsons, null, 2))
+            } else {
+                sd.jsons.forEach(json => {
+                    console.log("--")
+                    console.log(yaml.safeDump(json, {
+                        sortKeys: true,
+                    }))
+                })
+            }
+        }
     })
 
     .catch(error => {
