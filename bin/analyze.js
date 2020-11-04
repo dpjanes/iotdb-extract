@@ -55,7 +55,7 @@ _.promise({
     .then(extract.initialize)
 
     .conditional(sd => sd.url, fetch.document)
-    .conditional(sd => sd.path, fs.read.utf8)
+    .conditional(sd => sd.path && !sd.url, fs.read.utf8)
 
     // parse the document and guess it's structure
     /*

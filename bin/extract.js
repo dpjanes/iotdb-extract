@@ -11,25 +11,29 @@
 const _ = require("iotdb-helpers")
 const fs = require("iotdb-fs")
 const fetch = require("iotdb-fetch")
+const cache = require("iotdb-cache")
 const extract = require("..")
 
 const yaml = require("js-yaml")
 const path = require("path")
 const os = require("os")
-const URL = require("url").URL
-
-const cheerio = require("cheerio")
 
 const minimist = require("minimist")
 const ad = minimist(process.argv.slice(2), {
     boolean: [
         "verbose", "dump", "trace", "debug",
+        "cache",
     ],
     string: [
         "url", 
+        "path", 
+        "_",
     ],
     alias: {
     }, 
+    default: {
+        "cache": true,
+    },
 })
 
 const help = message => {
@@ -40,10 +44,21 @@ const help = message => {
         console.log()
     }
 
-    console.log(`usage: ${name} [options] --url <url>`)
-    console.log("")
-    console.log("Options:")
-    console.log("--url <url>                URL to pull (cached)")
+    console.log(`\
+usage: ${name} [options]
+
+one of these required:
+
+--url <url>     url to extract from
+--file <file>   file to extract from
+
+options:
+
+--rule <file>   read the parsing rule from this file
+
+--verbose       increase debugging information
+--no-cache      don't cache URL fetch
+`)
 
     process.exit(message ? 1 : 0)
 }
@@ -51,11 +66,8 @@ const help = message => {
 if (ad.help) {
     help()
 }
-if (!ad.url && ad._.length) {
-    ad.url = ad._.shift()
-}
-if (!ad.url) {
-    help("--url <url> is required")
+if (!ad.url && !ad.file) {
+    help("one of --url or --file is required")
 }
 _.logger.levels({
     debug: ad.debug || ad.verbose,
@@ -64,53 +76,38 @@ _.logger.levels({
 const logger = require("../logger")(__filename)
 
 /**
- */
-const _load = _.promise((self, done) => {
-    _.promise(self)
-        .validate(_load)
-
-        .add("path", path.join(self.cache_folder, self.url_hash + ".html"))
-        .then(fs.make.directory.parent)
-        
-        .add("otherwise", null)
-        .then(fs.read.utf8)
-        .conditional(sd => sd.document, _.promise.bail)
-
-        .then(fetch.document)
-        .then(fs.write.utf8)
-
-        .end(done, self, "document")
-})
-
-_load.method = "_load"
-_load.requires = {
-    cache_folder: _.is.String,
-    url: _.is.String,
-    url_hash: _.is.String,
-}
-_load.accepts = {
-}
-_load.produces = {
-    $: _.is.Object,
-    document: _.is.String,
-}
-
-/**
  *  main
  */
 _.promise({
     trace: ad.trace,
     verbose: ad.verbose,
 
-    cache_folder: path.join(os.homedir(), "var", "iotdb-extract"),
-    url: ad.url,
-    url_hash: _.hash.md5(ad.url),
+    cache$cfg: {
+        path: path.join(os.homedir(), ".iotdb-extract"),
+    },
+
+    url: ad.url || null,
+    path: ad.file || null,
+    rule: null,
+    rule_path: ad.rule || null,
 })
-    .then(_load)
+    .conditional(ad.cache, fs.cache)
+    .make(sd => {
+        sd.rule = {
+            key: _.hash.md5("iotdb-extract", "extract", ad.url || ad.path),
+            values: "document",
+            method: sd.url ? fetch.document : fs.read.utf8,
+        }
+    })
+    .then(cache.execute)
 
     .then(extract.initialize)
     .then(extract.load_rules.builtin)
-    .then(extract.find)
+
+    .add("rule_path:path")
+    .conditional(sd => sd.rule_path, fs.read.yamls)
+    .conditional(sd => sd.rule_path, _.promise.add("jsons:rules"), extract.find)
+
     .then(extract.extract)
 
     .make(sd => {
@@ -127,18 +124,11 @@ _.promise({
         })
     })
 
-    // done
     .catch(error => {
-        delete error.self
-        console.log("===")
-        console.trace()
-        console.log("===")
-        console.log()
+        if (ad.verbose) {
+            delete error.self
+            console.log(error)
+        }
 
         help(_.error.message(error))
     })
-
-
-/*
-*/
-
