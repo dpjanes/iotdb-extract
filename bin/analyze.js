@@ -26,6 +26,7 @@ const extract = require("iotdb-extract")
 const fs = require("iotdb-fs")
 const cache = require("iotdb-cache")
 const fetch = require("iotdb-fetch")
+const document = require("iotdb-document")
 
 const path = require("path")
 const os = require("os")
@@ -110,9 +111,37 @@ _.promise({
     .then(extract.initialize)
     .then(extract.analyze)
 
+    // collapse
     .make(sd => {
-        console.log(JSON.stringify(sd.extracts, null, 2))
+        sd.extracts.sort((a, b) => a.$score - b.$score)
+        sd.extract = Object.assign({}, ...sd.extracts)
+
+        _.keys(sd.extract)
+            .filter(key => key.startsWith("$"))
+            .forEach(key => delete sd.extract[key])
+
+        sd.rule = {
+            urls: null,
+            samples: [],
+            extract: sd.extract,
+        }
+
+        if (sd.url) {
+            sd.rule.urls = new URL(sd.url).hostname.replace(/^www[.]/, "")
+            sd.rule.samples.push(sd.url)
+        }
     })
+
+    // convert to YAML
+    .add("rule:json")
+    .then(document.from.yaml)
+    .make(sd => {
+        sd.document = "---\n" + sd.document
+    })
+
+    .conditional(ad.write, "write:path")
+    .conditional(ad.write, fs.write.utf8, fs.write.stdout)
+
     .catch(error => {
         console.log("#", _.error.message(error))
 
