@@ -152,7 +152,7 @@ _.promise({
     .catch(error => {
         if (ad.verbose) {
             delete error.self
-            console.log(error)
+            console.log("#", error)
         }
 
         help(_.error.message(error))

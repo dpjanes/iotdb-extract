@@ -36,10 +36,12 @@ const ad = minimist(process.argv.slice(2), {
     boolean: [
         "verbose", "dump", "trace", "debug",
         "cache",
+        "parts",
     ],
     string: [
         "file",
         "url",
+        "write",
     ],
     default: {
         "cache": true,
@@ -65,6 +67,9 @@ one of these required:
 --file <file>   file to extract from
 
 options:
+
+--write <file>  write the rule (otherwise stdout)
+--parts         write the raw parts to stdout as JSON
 
 --verbose       increase debugging information
 --no-cache      don't cache URL fetch
@@ -132,15 +137,20 @@ _.promise({
         }
     })
 
-    // convert to YAML
+    // prepare for output
     .add("rule:json")
     .then(document.from.yaml)
     .make(sd => {
         sd.document = "---\n" + sd.document
+        sd.path = ad.write || null
     })
-
-    .conditional(ad.write, "write:path")
-    .conditional(ad.write, fs.write.utf8, fs.write.stdout)
+    .conditional(ad.write, fs.write.utf8)
+    .conditional(!ad.write && !ad.parts, fs.write.stdout)
+    .make(sd => {
+        if (ad.parts) {
+            console.log(JSON.stringify(sd.extracts, null, 2))
+        }
+    })
 
     .catch(error => {
         console.log("#", _.error.message(error))
