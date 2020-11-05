@@ -24,45 +24,90 @@
 const _ = require("iotdb-helpers")
 const extract = require("iotdb-extract")
 const fs = require("iotdb-fs")
-const aws = require("iotdb-awslib")
 const cache = require("iotdb-cache")
 const fetch = require("iotdb-fetch")
 
 const path = require("path")
+const os = require("os")
 
 const minimist = require("minimist")
 const ad = minimist(process.argv.slice(2), {
+    boolean: [
+        "verbose", "dump", "trace", "debug",
+        "cache",
+    ],
     string: [
         "file",
         "url",
     ],
-    boolean: [ ],
+    default: {
+        "cache": true,
+    },
 })
 
-if (!ad.url && !ad.file) {
-    console.log("#", "expected --file or --url")
-    process.exit()
+const help = message => {
+    const name = "analyze"
+
+    if (message) {
+        console.log(`${name}: ${message}`)
+        console.log()
+    }
+
+    console.log(`\
+usage: ${name} [options]
+
+Try and construct rules for an HTML document.
+
+one of these required:
+
+--url <url>     url to extract from
+--file <file>   file to extract from
+
+options:
+
+--verbose       increase debugging information
+--no-cache      don't cache URL fetch
+`)
+
+    process.exit(message ? 1 : 0)
 }
 
+if (ad.help) {
+    help()
+}
+if (!ad.url && !ad.file) {
+    help("one of --url or --file is required")
+}
+_.logger.levels({
+    debug: ad.debug || ad.verbose,
+    trace: ad.trace || ad.verbose,
+})
+const logger = require("../logger")(__filename)
+
 _.promise({
+    trace: ad.trace,
+    verbose: ad.verbose,
+
     cache$cfg: {
-        path: path.join(__dirname, "..", ".fs-cache"),
+        path: path.join(os.homedir(), ".iotdb-extract"),
     },
+
     url: ad.url || null,
     path: ad.file || null,
 })
-    // extract
+    // fetch the document 
+    .conditional(ad.cache, fs.cache)
+    .make(sd => {
+        sd.rule = {
+            key: _.hash.md5("iotdb-extract", "extract", sd.url || sd.path),
+            values: "document",
+            method: sd.url ? fetch.document : fs.read.utf8,
+        }
+    })
+    .then(cache.execute)
+
+    // analyze the data
     .then(extract.initialize)
-
-    .conditional(sd => sd.url, fetch.document)
-    .conditional(sd => sd.path && !sd.url, fs.read.utf8)
-
-    // parse the document and guess it's structure
-    /*
-    .then(fs.read.utf8.p(path.join(__dirname, "../test/data/reuters-congo-1/input.html")))
-    .then(fs.read.utf8.p(path.join(__dirname, "../test/data/bbc-brazil-1/input.html")))
-    .then(fs.read.utf8.p(path.join(__dirname, "../test/data/cp24-1/input.html")))
-    */
     .then(extract.analyze)
 
     .make(sd => {

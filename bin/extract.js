@@ -97,10 +97,11 @@ _.promise({
     rule: null,
     rule_path: ad.rule || null,
 })
+    // fetch the document 
     .conditional(ad.cache, fs.cache)
     .make(sd => {
         sd.rule = {
-            key: _.hash.md5("iotdb-extract", "extract", ad.url || ad.path),
+            key: _.hash.md5("iotdb-extract", "extract", sd.url || sd.path),
             values: "document",
             method: sd.url ? fetch.document : fs.read.utf8,
         }
