@@ -128,6 +128,7 @@ _.promise({
             })
 
         sd.rule = {
+            apiVersion: "extract/v1",
             urls: null,
             samples: [],
             extract: sd.extract,
