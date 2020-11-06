@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: dailymail.co.uk
 samples:
   - >-

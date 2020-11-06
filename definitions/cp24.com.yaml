@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: cp24.com
 samples:
   - >-

@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: euronews.com
 samples:
 - http://www.euronews.com/2017/02/15/central-african-nations-warn-trump-reform-could-lead-to-conflict

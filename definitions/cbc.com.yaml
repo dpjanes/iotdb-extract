@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: cbc.ca
 samples:
 - https://www.cbc.ca/news/politics/does-mexico-throw-canada-under-the-bus-1.4807073

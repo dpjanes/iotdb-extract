@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: allafrica.com
 samples:
 - https://allafrica.com/stories/201808280615.html

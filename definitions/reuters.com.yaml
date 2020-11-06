@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: reuters.com
 samples:
 - https://www.reuters.com/article/us-health-ebola-congo/congo-records-first-ebola-case-in-major-eastern-city-of-butembo-idUSKCN1LL1FG

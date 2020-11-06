@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: france24.com
 samples:
   - >-

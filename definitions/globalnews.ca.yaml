@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: globalnews.ca
 samples:
   - 'https://globalnews.ca/news/5692289/hong-kong-police-tear-gas-protesters/'

@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: news24.com
 samples:
 - https://www.news24.com/Africa/News/eastern-drc-has-new-ebola-case-in-city-of-14-million-20180905

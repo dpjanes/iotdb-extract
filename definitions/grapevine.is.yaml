@@ -1,4 +1,5 @@
 ---
+apiVersion: extract/v1
 urls: grapevine.is
 samples:
   - 'https://grapevine.is/mag/feature/2019/07/19/of-monsters-and-men-fever-dream/'
