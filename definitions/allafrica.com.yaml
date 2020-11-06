@@ -5,15 +5,17 @@ samples:
 meta:
   language: en
 extract:
-  $select: .article .content-container
-  $removes: 
-  - .story-footer-link
-  - "#page-end-slidebox"
   name: 
     select: .article h1
-    removes: "Congo-Kinshasa: "
-  document: p
-  created:
+    edit: 
+      "Congo-Kinshasa: ": ""
+    removes: 
+    - .story-footer-link
+    - "#page-end-slidebox"
+  document: 
+    select: .article .content-container
+    content: p
+  datePublished:
     select: 'meta[property="article:published_time"]'
     attribute: content
   dateModified:

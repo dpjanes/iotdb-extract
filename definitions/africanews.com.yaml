@@ -5,10 +5,11 @@ samples:
 meta:
   language: en
 extract:
-  $select: article.article
   name: h1
-  document: .article-wrapper p
-  created:
+  document: 
+    select: article.article 
+    content: .article-wrapper p
+  datePublished:
     select: 'meta[property="article:published_time"]'
     attribute: content
   dateModified:

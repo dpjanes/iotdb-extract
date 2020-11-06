@@ -5,9 +5,10 @@ samples:
 meta:
   language: en
 extract:
-  $select: .main-container
   name: h1
-  document: ".article-p-wrapper p"
+  document: 
+    article: .main-container
+    content: ".article-p-wrapper p"
   dateModified:
     select: 'meta[name="LastModifiedDate"]'
     attribute: content

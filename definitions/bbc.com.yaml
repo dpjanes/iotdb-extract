@@ -5,9 +5,10 @@ samples:
 meta:
   language: en
 extract:
-  $select: .story-body
   name: h1
-  document: .story-body__inner p
+  document: 
+    select: .story-body
+    content: .story-body__inner p
   datePublished:
     select: 'script[type="application/ld+json"]'
     jsonld: datePublished

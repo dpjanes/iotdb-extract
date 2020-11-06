@@ -5,7 +5,8 @@ samples:
 extract:
   name: 
     select: h1
-    removes: " - The Reykjavik Grapevine"
+    edit: 
+      " - The Reykjavik Grapevine": ""
   document: article.main-article
   datePublished:
     select: 'meta[property="article:published_time"]'

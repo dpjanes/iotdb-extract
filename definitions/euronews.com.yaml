@@ -5,11 +5,12 @@ samples:
 meta:
   language: en
 extract:
-  $select: .c-article article 
   name: 
     select: h1
-  document: div[itemprop="articleBody"] p
-  created:
+  document: 
+    select: .c-article article 
+    content: div[itemprop="articleBody"] p
+  datePublished:
     select: 'meta[name="date.created"]'
     attribute: content
   dateModified:

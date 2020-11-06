@@ -5,13 +5,14 @@ samples:
 meta:
   language: en
 extract:
-  $select: div.article
-  $removes: strong
   name: h1
   document: 
-    story: "#article-body p"
-    removes: "and Facebook"
-  created:
+    select: div.article 
+    content: "#article-body p"
+    removes: strong
+    edit: 
+      "and Facebook": ""
+  datePublished:
     select: 'meta[property="article:published_time"]'
     attribute: content
   dateModified:

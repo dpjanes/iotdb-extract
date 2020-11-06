@@ -122,8 +122,10 @@ _.promise({
         sd.extract = Object.assign({}, ...sd.extracts)
 
         _.keys(sd.extract)
-            .filter(key => key.startsWith("$"))
-            .forEach(key => delete sd.extract[key])
+            .forEach(key => {
+                delete sd.extract.$score
+                delete sd.extract.$strategy
+            })
 
         sd.rule = {
             urls: null,

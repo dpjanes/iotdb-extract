@@ -5,9 +5,10 @@ samples:
 meta:
   language: en
 extract:
-  $select: .detailBodyContainer
-  created:
+  datePublished:
     select: '.byline .timeStamp'
     attribute: datetime
   name: h1
-  document: .story p
+  document: 
+    select: .detailBodyContainer
+    content: .story p
