@@ -105,6 +105,7 @@ const _one_sample = _.promise((self, done) => {
         
         .then(extract.extract)
         .make(sd => {
+            sd.jsons.forEach(json => delete json._rule)
             sd.new_extracts = sd.jsons
         })
 
