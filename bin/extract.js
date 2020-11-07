@@ -80,7 +80,8 @@ Output options (by default, output is YAML):
 --first          only output the first result
 --json           output the data as JSON
 --jsonl          output the data as JSON Lines
---as <type>      as a schema.org type in JSON-LD (as much as possible)
+--as <type>      as a schema.org type in JSON-LD (as much as possible,
+                 most plausibly NewsArticle)
 
 Debugging info:
 

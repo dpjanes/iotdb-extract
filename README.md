@@ -39,7 +39,8 @@ Extract structured data from an HTML document, using rules.
     --first          only output the first result
     --json           output the data as JSON
     --jsonl          output the data as JSON Lines
-    --as <type>      as a schema.org type in JSON-LD (as much as possible)
+    --as <type>      as a schema.org type in JSON-LD (as much as possible,
+                     most plausibly NewsArticle)
     
     Debugging info:
     
