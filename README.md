@@ -81,12 +81,15 @@ Try to construct extraction rules for an HTML document.
     --verbose       increase debugging information
     --no-cache      don't cache URL fetch
     
+Try these:
+
+    node analyze --url 'https://edition.cnn.com/2019/07/27/africa/rwanda-opposition-disappearances-intl/index.html'
+    node analyze --url 'https://www.bbc.com/news/world-asia-49136211'
+    node analyze --url 'https://www.cbc.ca/news/politics/snc-lavalin-bellegarde-2019-election-1.5226179'
+	node analyze --url 'https://grapevine.is/mag/feature/2019/07/19/of-monsters-and-men-fever-dream/'
 
 ### Validate
 
-Try this example:
-
-	node analyze --url 'https://grapevine.is/mag/feature/2019/07/19/of-monsters-and-men-fever-dream/'
 
 
 
