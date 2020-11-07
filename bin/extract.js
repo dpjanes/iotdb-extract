@@ -172,7 +172,9 @@ _.promise({
             })
         }
 
-        if (ad.one) {
+        if (ad.jsonl) {
+            sd.jsons.forEach(json => console.log(JSON.stringify(json)))
+        } else if (ad.one) {
             if (ad.json) {
                 console.log(JSON.stringify(sd.jsons[0] || null, null, 2))
             } else if (sd.jsons.length) {
