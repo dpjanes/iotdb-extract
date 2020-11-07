@@ -54,7 +54,41 @@ Try this example:
 
 
 ### Analyze
+
+Try to construct extraction rules for an HTML document.
+
+
+    usage: analyze [options]
+    
+    Try to construct extraction rules for an HTML document.
+    
+    Source options:
+    
+    One of these is required. If used together, the document will
+    be read from the file, but the url is assumed to be the source
+    of the file - this is useful in case, e.g. in looking up rules..
+    
+    --url <url>     url to extract from
+    --file <file>   file to extract from
+    
+    Rule options:
+    
+    --rule <file>   write the rule to this file (otherwise stdout)
+    --parts         write the raw parts to stdout as JSON
+    
+    Debugging info:
+    
+    --verbose       increase debugging information
+    --no-cache      don't cache URL fetch
+    
+
 ### Validate
+
+Try this example:
+
+	node analyze --url 'https://grapevine.is/mag/feature/2019/07/19/of-monsters-and-men-fever-dream/'
+
+
 
 ## Rules
 

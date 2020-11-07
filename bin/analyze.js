@@ -59,17 +59,23 @@ const help = message => {
     console.log(`\
 usage: ${name} [options]
 
-Try and construct rules for an HTML document.
+Try to construct extraction rules for an HTML document.
 
-one of these required:
+Source options:
+
+One of these is required. If used together, the document will
+be read from the file, but the url is assumed to be the source
+of the file - this is useful in case, e.g. in looking up rules..
 
 --url <url>     url to extract from
 --file <file>   file to extract from
 
-options:
+Rule options:
 
 --rule <file>   write the rule to this file (otherwise stdout)
 --parts         write the raw parts to stdout as JSON
+
+Debugging info:
 
 --verbose       increase debugging information
 --no-cache      don't cache URL fetch
