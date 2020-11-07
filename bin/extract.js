@@ -25,11 +25,14 @@ const ad = minimist(process.argv.slice(2), {
         "cache",
         "first", "one",
         "json",
+        "jsonl",
     ],
     string: [
         "url", 
         "path", 
         "_",
+        "as",
+        "rules",
     ],
     alias: {
         "one": "first",
@@ -50,20 +53,39 @@ const help = message => {
     console.log(`\
 usage: ${name} [options]
 
-one of these required:
+Extract structured data from an HTML document, using rules.
+
+Source options:
+
+One of these is required. If used together, the document will
+be read from the file, but the url is assumed to be the source
+of the file - this is useful in case, e.g. in looking up rules..
 
 --url <url>     url to extract from
 --file <file>   file to extract from
 
-options:
+Rule options:
 
---rule <file>   read the parsing rule from this file
+If --rule is specified, the rules in that file will
+be used for better or for worse. If --rules is specified, all the
+rules in that folder will be used (narrowed by --url). If neither is
+specified, the default rules will be which handle a few well-known
+news sites (e.g. cnn, cbc, bbc)
 
---first         only output the first result
---json          output the data as JSON (as opposed to YAML)
+--rules <folder> load 
+--rule <file>    read the parsing rule from this file
 
---verbose       increase debugging information
---no-cache      don't cache URL fetch
+Output options (by default, output is YAML):
+
+--first          only output the first result
+--json           output the data as JSON
+--jsonl          output the data as JSON Lines
+--as <type>      as a schema.org type in JSON-LD (as much as possible)
+
+Debugging info:
+
+--verbose        increase debugging information
+--no-cache       don't cache URL fetch
 `)
 
     process.exit(message ? 1 : 0)

@@ -6,9 +6,9 @@ samples:
 extract:
   name: 
     select: h1
-    edit: 
-      " - The Reykjavik Grapevine": ""
-  document: article.main-article
+  document: 
+    select: article
+    content: p
   datePublished:
     select: 'meta[property="article:published_time"]'
     attribute: content

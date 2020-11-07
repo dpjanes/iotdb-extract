@@ -11,7 +11,9 @@ extract:
   datePublished:
     select: 'script[type="application/ld+json"]'
     jsonld: datePublished
-  document: div.articleBody
+  document: 
+    select: div.articleBody
+    content: p
   keywords:
     select: 'meta[name="news_keywords"]'
     attribute: content
