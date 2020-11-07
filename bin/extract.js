@@ -147,6 +147,31 @@ _.promise({
                 .forEach(key => delete json[key])
         })
 
+        if (ad.as) {
+            sd.jsons.forEach(json => {
+                json["@context"] = {
+                    "@vocab": "http://schema.org/"
+                },
+
+                json["@type"] = ad.as
+
+                if (json.url) {
+                    json["@id"] = json.url
+                    delete json.url
+                }
+
+                if (json.name) {
+                    json.headline = json.name
+                    // we keep name
+                }
+
+                if (json.document) {
+                    json.articleBody = json.document
+                    delete json.document
+                }
+            })
+        }
+
         if (ad.one) {
             if (ad.json) {
                 console.log(JSON.stringify(sd.jsons[0] || null, null, 2))
