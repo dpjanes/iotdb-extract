@@ -39,6 +39,7 @@ const ad = minimist(process.argv.slice(2), {
     }, 
     default: {
         "cache": true,
+        "rules": path.join(__dirname, "..", "definitions"),
     },
 })
 
@@ -132,7 +133,7 @@ _.promise({
     .then(cache.execute)
 
     .then(extract.initialize)
-    .then(extract.load_rules.builtin)
+    .then(extract.load_rules.p(ad.rules))
 
     .add("rule_path:path")
     .conditional(sd => sd.rule_path, fs.read.yamls)
