@@ -107,7 +107,7 @@ _.promise({
         sd.rule = {
             key: _.hash.md5("iotdb-extract", "extract", sd.path || sd.url),
             values: "document",
-            method: sd.path ? fetch.document : fs.read.utf8,
+            method: sd.path ? fs.read.utf8 : fetch.document,
         }
     })
     .then(cache.execute)
