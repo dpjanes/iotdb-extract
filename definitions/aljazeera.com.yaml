@@ -2,19 +2,19 @@
 apiVersion: extract/v1
 urls: aljazeera.com
 samples:
-- https://www.aljazeera.com/news/2018/08/drc-kabila-stand-election-spokesman-180808130105604.html
-meta:
-  language: en
+  - >-
+    https://www.aljazeera.com/news/2018/08/drc-kabila-stand-election-spokesman-180808130105604.html
 extract:
-  name: h1
-  document: 
-    article: .main-container
-    content: ".article-p-wrapper p"
-  dateModified:
-    select: 'meta[name="LastModifiedDate"]'
-    attribute: content
-  keywords:
-    select: 'meta[name="news_keywords"]'
-    attribute: content
-    split: ","
-    list: true
+  document:
+    select: div.wysiwyg
+    content: 'p'
+  name:
+    select: 'script[type="application/ld+json"]'
+    jsonld: headline
+    list: false
+    first: true
+  datePublished:
+    select: 'script[type="application/ld+json"]'
+    jsonld: datePublished
+    list: false
+    first: true

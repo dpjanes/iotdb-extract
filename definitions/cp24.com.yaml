@@ -5,17 +5,18 @@ samples:
   - >-
     https://www.cp24.com/news/toronto-investor-miles-nadal-spends-record-breaking-577k-on-rare-nike-sneakers-1.4526136
 extract:
-  name:
-    select: 'script[type="application/ld+json"]'
-    jsonld: headline
-  datePublished:
-    select: 'script[type="application/ld+json"]'
-    jsonld: datePublished
-  document: 
+  document:
     select: div.articleBody
-    content: p
-  keywords:
-    select: 'meta[name="news_keywords"]'
+    content: 'p'
+  name:
+    select: 'meta[name="twitter:title"]'
     attribute: content
-    split: ","
-    list: true
+    first: true
+  dateModified:
+    select: 'meta[name="dc.date.modified"]'
+    attribute: content
+    first: true
+  datePublished:
+    select: 'meta[property="article:published_time"]'
+    attribute: content
+    first: true

@@ -2,23 +2,21 @@
 apiVersion: extract/v1
 urls: euronews.com
 samples:
-- http://www.euronews.com/2017/02/15/central-african-nations-warn-trump-reform-could-lead-to-conflict
-meta:
-  language: en
+  - >-
+    http://www.euronews.com/2017/02/15/central-african-nations-warn-trump-reform-could-lead-to-conflict
 extract:
-  name: 
-    select: h1
-  document: 
-    select: .c-article article 
-    content: div[itemprop="articleBody"] p
+  document:
+    select: article div.c-article-content
+    content: p
+  name:
+    select: 'meta[name="twitter:title"]'
+    attribute: content
+    first: true
   datePublished:
-    select: 'meta[name="date.created"]'
+    select: 'meta[property="article:published_time"]'
     attribute: content
+    first: true
   dateModified:
-    select: 'meta[name="date.updated"]'
+    select: 'meta[property="article:modified_time"]'
     attribute: content
-  keywords:
-    select: 'meta[name="news_keywords"]'
-    attribute: content
-    split: ","
-    list: true
+    first: true

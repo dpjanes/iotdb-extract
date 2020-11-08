@@ -4,16 +4,19 @@ urls: globalnews.ca
 samples:
   - 'https://globalnews.ca/news/5692289/hong-kong-police-tear-gas-protesters/'
 extract:
-  name: h1.story-h.gn-speakable-title
-  document: div.story-txt
+  document:
+    select: article
+    content: p
+    removes: 
+    - div
+    - '#content-dynamic-trending-stories'
+  name:
+    select: 'script[type="application/ld+json"]'
+    jsonld: headline
+    list: false
+    first: true
   datePublished:
-    select: 'meta[name="pubdate"]'
-    attribute: content
-  dateModified:
-    select: 'meta[property="article:modified_time"]'
-    attribute: content
-  keywords:
-    select: 'meta[name="keywords"]'
-    attribute: content
-    split: ","
-    list: true
+    select: 'script[type="application/ld+json"]'
+    jsonld: datePublished
+    list: false
+    first: true
