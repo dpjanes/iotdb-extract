@@ -73,6 +73,10 @@ Debugging info:
 if (ad.help) {
     help()
 }
+if (!ad._.length) {
+    help("at least one rule file is required")
+}
+
 _.logger.levels({
     debug: ad.debug || ad.verbose,
     trace: ad.trace || ad.verbose,
@@ -84,9 +88,17 @@ const logger = require("../logger")(__filename)
 const _one_sample = _.promise((self, done) => {
     _.promise(self)
         .validate(_one_sample)
-        .log("url", "url")
 
         .make(sd => {
+            logger.info({
+                method: _one_sample.method,
+                parameters: {
+                    url: sd.url,
+                    source: sd.source,
+                    folder: sd.folder,
+                },
+            }, "called")
+
             sd.rule = {
                 key: _.hash.md5("iotdb-extract", "extract", sd.url),
                 values: "document",
@@ -96,8 +108,8 @@ const _one_sample = _.promise((self, done) => {
         .then(cache.execute)
 
         .make(sd => {
-            
             sd.path = path.join(sd.folder, _.hash.md5(sd.url) + ".yaml")
+            sd.old_path = sd.path
             sd.fs$otherwise_json = null
         })
         .then(fs.read.yaml)
@@ -122,6 +134,20 @@ const _one_sample = _.promise((self, done) => {
                     path: sd.path,
                 }, "write extracted data")
             } else if (_.is.Equal(sd.new_extracts, sd.old_extracts)) {
+                logger.debug({
+                    url: sd.url,
+                    method: _one_sample.method,
+                }, "not changed")
+            } else {
+                logger.warn({
+                    method: _one_sample.method,
+                    url: sd.url,
+                    "new_extracts": sd.new_extracts,
+                    "old_extracts": sd.old_extracts,
+                    "old_path": sd.old_path,
+                }, "CHANGED")
+
+                sd.result.exit = 1
             }
         })
         .conditional(sd => sd.json, fs.write.yaml)
@@ -135,10 +161,16 @@ _one_sample.requires = {
     rule: _.is.Dictionary,
     folder: _.is.String,
     url: _.is.String,
+    result: {
+        exit: _.is.Integer,
+    },
 }
 _one_sample.accepts = {
 }
 _one_sample.produces = {
+    result: {
+        exit: _.is.Integer,
+    },
 }
 
 /**
@@ -176,7 +208,6 @@ const _one_rules = _.promise((self, done) => {
     _.promise(self)
         .validate(_one_rules)
 
-        .log("path", "path")
         .then(fs.read.yamls)
         .make(sd => {
             sd.rules = sd.jsons
@@ -215,6 +246,9 @@ _.promise({
     },
 
     paths: ad._,
+    result: {
+        exit: 0,
+    }
 })
     .conditional(ad.cache, fs.cache)
 
@@ -224,78 +258,10 @@ _.promise({
         method: _one_rules,
         inputs: "paths:path",
     })
-    
-    /*
-    // fetch the document 
-
-    .then(extract.load_rules.p(ad.rules))
-
-    .add("rule_path:path")
-    .conditional(sd => sd.rule_path, fs.read.yamls)
-    .conditional(sd => sd.rule_path, _.promise.add("jsons:rules"), extract.find)
-
-    .then(extract.extract)
-
     .make(sd => {
-        sd.jsons.forEach(json => {
-            _.keys(json)
-                .filter(key => key.startsWith("_"))
-                .forEach(key => delete json[key])
-        })
-
-        if (ad.as) {
-            sd.jsons.forEach(json => {
-                json["@context"] = {
-                    "@vocab": "http://schema.org/"
-                },
-
-                json["@type"] = ad.as
-
-                if (json.url) {
-                    json["@id"] = json.url
-                    delete json.url
-                }
-
-                if (json.name) {
-                    json.headline = json.name
-                    // we keep name
-                }
-
-                if (json.document) {
-                    json.articleBody = json.document
-                    delete json.document
-                }
-            })
-        }
-
-        if (ad.jsonl) {
-            sd.jsons.forEach(json => console.log(JSON.stringify(json)))
-        } else if (ad.one) {
-            if (ad.json) {
-                console.log(JSON.stringify(sd.jsons[0] || null, null, 2))
-            } else if (sd.jsons.length) {
-                console.log("--")
-                console.log(yaml.safeDump(jsons[0], {
-                    sortKeys: true,
-                }))
-            } else {
-                console.log("--")
-            }
-        } else {
-            if (ad.json) {
-                console.log(JSON.stringify(sd.jsons, null, 2))
-            } else {
-                sd.jsons.forEach(json => {
-                    console.log("--")
-                    console.log(yaml.safeDump(json, {
-                        sortKeys: true,
-                    }))
-                })
-            }
-        }
+        process.exit(sd.result.exit)
     })
-    */
-
+    
     .catch(error => {
         if (ad.verbose) {
             delete error.self

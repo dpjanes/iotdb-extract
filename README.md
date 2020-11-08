@@ -57,7 +57,6 @@ Try this example:
 
 Try to construct extraction rules for an HTML document.
 
-
     usage: analyze [options]
     
     Try to construct extraction rules for an HTML document.
@@ -90,8 +89,7 @@ Try these:
 
 ### Validate
 
-
-
+Validate will make sure that one or more rules that you have saved are still valid.
 
 ## Rules
 

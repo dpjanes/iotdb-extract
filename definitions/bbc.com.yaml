@@ -7,9 +7,9 @@ meta:
   language: en
 extract:
   name: h1
-  document: 
-    select: .story-body
-    content: .story-body__inner p
+  document:
+    select: article
+    content: p
   datePublished:
     select: 'script[type="application/ld+json"]'
     jsonld: datePublished
