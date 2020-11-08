@@ -2,23 +2,33 @@
 apiVersion: extract/v1
 urls: reuters.com
 samples:
-- https://www.reuters.com/article/us-health-ebola-congo/congo-records-first-ebola-case-in-major-eastern-city-of-butembo-idUSKCN1LL1FG
-meta:
-  language: en
+  - >-
+    https://www.reuters.com/article/us-health-ebola-congo/congo-records-first-ebola-case-in-major-eastern-city-of-butembo-idUSKCN1LL1FG
 extract:
-  name: 
-    select: h1
-  document: 
-    select: .StandardArticleBody_body
+  document:
+    select: article div.ArticleBodyWrapper
     content: p
-  keywords:
-    select: 'meta[property="og:article:tag"]'
-    attribute: content
-    split: ","
-    list: true
   datePublished:
-    select: 'meta[property="og:article:published_time"]'
-    attribute: content
+    select: 'script[type="application/ld+json"]'
+    jsonld: datePublished
+    list: false
+    first: true
+  name:
+    select: 'script[type="application/ld+json"]'
+    jsonld: headline
+    list: false
+    first: true
   dateModified:
     select: 'meta[property="og:article:modified_time"]'
     attribute: content
+    first: true
+  dateCreated:
+    select: 'script[type="application/ld+json"]'
+    jsonld: dateCreated
+    list: false
+    first: true
+  keywords:
+    select: 'script[type="application/ld+json"]'
+    jsonld: keywords
+    list: true
+    first: false
