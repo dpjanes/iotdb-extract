@@ -2,7 +2,7 @@
  *  bin/extract.js
  *
  *  David Janes
- *  Consensas
+ *  IOTDB
  *  2019-07-28
  */
 

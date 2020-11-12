@@ -2,7 +2,7 @@
  *  bin/examine.js
  *
  *  David Janes
- *  Consensas
+ *  IOTDB
  *  2019-11-12
  */
 

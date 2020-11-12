@@ -2,7 +2,7 @@
  *  samples/brazil.js
  *
  *  David Janes
- *  Consensas
+ *  IOTDB
  *  2018-09-01
  *
  *  Copyright (2013-2020) David P. Janes

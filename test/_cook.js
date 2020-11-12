@@ -2,7 +2,7 @@
  *  _cook.js
  *
  *  David Janes
- *  Consensas
+ *  IOTDB
  *  2018-11-10
  
  *  Copyright (2013-2020) David P. Janes

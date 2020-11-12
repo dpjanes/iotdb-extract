@@ -2,7 +2,7 @@
  *  bin/validate.js
  *
  *  David Janes
- *  Consensas
+ *  IOTDB
  *  2020-11-07
  */
 

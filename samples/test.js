@@ -2,7 +2,7 @@
  *  samples/test.js
  *
  *  David Janes
- *  Consensas
+ *  IOTDB
  *  2018-09-05
  *
  *  Copyright (2013-2020) David P. Janes

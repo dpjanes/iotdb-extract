@@ -2,7 +2,7 @@
  *  samples/analyze.js
  *
  *  David Janes
- *  Consensas
+ *  IOTDB
  *  2020-10-31
  *  🎃🕸👻
  *
