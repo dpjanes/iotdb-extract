@@ -87,6 +87,46 @@ Try these:
     node analyze --url 'https://www.cbc.ca/news/politics/snc-lavalin-bellegarde-2019-election-1.5226179'
 	node analyze --url 'https://grapevine.is/mag/feature/2019/07/19/of-monsters-and-men-fever-dream/'
 
+### Examine
+
+Examine the structure of an HTML document. This is useful
+when the Analyze tool does not figure out everything.
+
+    usage: examine [options]
+
+    Examine the structure of an HTML document.
+    The most likely way you want to use this is:
+
+        node examine --url <url> --find p
+
+    Source options:
+
+    One of these is required, with --file getting precedence
+
+    --url <url>      url to extract from
+    --file <file>    file to extract from
+
+    Output options (one of these is required):
+
+    --raw            just dump the document
+    --html           dump document, after structuring
+    --find <tag>[,<tag>...]
+                     find tag(s), print the text and the CSS path
+
+    Structuring options:
+
+    --remove <tag>[,<tag>...]
+                     remove tags from the document first, the
+                     default being "svg,script,style,form"
+    --scrub          remove all attributes except "class" and "id"
+    --root <tag>     start at the root tag, default is "body"
+
+    Debugging info:
+
+    --verbose        increase debugging information
+    --no-cache       don't cache URL fetch
+
+
 ### Validate
 
 Validate will make sure that one or more rules that you have saved are still valid.
