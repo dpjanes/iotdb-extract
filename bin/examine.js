@@ -55,7 +55,7 @@ const ad = minimist(process.argv.slice(2), {
 })
 
 const help = message => {
-    const name = "structure"
+    const name = "examine"
 
     if (message) {
         console.log(`${name}: ${message}`)
@@ -65,8 +65,8 @@ const help = message => {
     console.log(`\
 usage: ${name} [options]
 
-Examine the structure of an HTML document. The most
-likely way you want to use this is:
+Examine the structure of an HTML document. 
+The most likely way you want to use this is:
 
     node ${name} --url <url> --find p
 
@@ -80,7 +80,7 @@ One of these is required, with --file getting precedence
 Output options (one of these is required):
 
 --raw            just dump the document
---html
+--html           dump document, after structuring
 --find <tag>[,<tag>...]     
                  find tag(s), print the text and the CSS path
 
@@ -106,6 +106,9 @@ if (ad.help) {
 }
 if (!ad.url && !ad.file) {
     help("one of --url or --file is required")
+}
+if (!ad.find && !ad.raw && !ad.html) {
+    help("one of --find <tag>, --raw or --html is required")
 }
 _.logger.levels({
     debug: ad.debug || ad.verbose,
