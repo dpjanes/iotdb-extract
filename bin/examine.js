@@ -40,6 +40,7 @@ const ad = minimist(process.argv.slice(2), {
         "_",
         "remove",
         "find",
+        "root",
     ],
     alias: {
         "remove": "removes",
@@ -49,6 +50,7 @@ const ad = minimist(process.argv.slice(2), {
         "scrub": true,
         "rules": path.join(__dirname, "..", "definitions"),
         "remove": "svg,script,style,form",
+        "root": "body",
     },
 })
 
@@ -63,7 +65,10 @@ const help = message => {
     console.log(`\
 usage: ${name} [options]
 
-Examine the structure of an HTML document
+Examine the structure of an HTML document. The most
+likely way you want to use this is:
+
+    node ${name} --url <url> --find p
 
 Source options:
 
@@ -72,9 +77,20 @@ One of these is required, with --file getting precedence
 --url <url>      url to extract from
 --file <file>    file to extract from
 
-Output options:
+Output options (one of these is required):
 
 --raw            just dump the document
+--html
+--find <tag>[,<tag>...]     
+                 find tag(s), print the text and the CSS path
+
+Structuring options:
+
+--remove <tag>[,<tag>...]
+                 remove tags from the document first, the
+                 default being "svg,script,style,form"
+--scrub          remove all attributes except "class" and "id"
+--root <tag>     start at the root tag, default is "body"
 
 Debugging info:
 
@@ -129,7 +145,7 @@ _.promise({
         }
 
         const $ = cheerio.load(sd.document)
-        const $document = $("body")
+        const $document = $(ad.root)
 
         if (!_.is.Empty(ad.remove)) {
             $document.find(ad.remove).remove()
