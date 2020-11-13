@@ -96,6 +96,13 @@ Debugging info:
 if (ad.help) {
     help()
 }
+if (!ad.url && !ad.file && ad._.length) {
+    if (_.is.AbsoluteURL(ad._[0])) {
+        ad.url = ad._.shift()
+    } else {
+        ad.path = ad._.shift()
+    }
+}
 if (!ad.url && !ad.file) {
     help("one of --url or --file is required")
 }
