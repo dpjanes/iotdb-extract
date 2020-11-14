@@ -5,10 +5,10 @@
     }, 
     "dependencies": {
         "cheerio": "~1.0.0-rc.3", 
-        "iotdb-awslib": "~2.0.1", 
-        "iotdb-fetch": "~1.2.3", 
-        "iotdb-fs": "~2.0.1", 
-        "iotdb-helpers": "~3.4.12"
+        "iotdb-awslib": "~2.0.2", 
+        "iotdb-fetch": "~1.3.3", 
+        "iotdb-fs": "~2.0.4", 
+        "iotdb-helpers": "~3.4.23"
     }, 
     "description": "POP Extract data from webpages", 
     "homepage": "https://github.com/dpjanes/node-iotdb", 
@@ -24,5 +24,5 @@
         "cover": "nyc --reporter=html mocha --recursive", 
         "test": "mocha --recursive --bail"
     }, 
-    "version": "1.1.0"
+    "version": "1.1.1"
 }
