@@ -36,7 +36,9 @@ echo "=================="
         README.md LICENSE \
         package.json \
         index.js \
+        logger.js \
         lib/*.js \
+        lib/*/*.js \
         bin/*.js \
         definitions/*.yaml \
         |
