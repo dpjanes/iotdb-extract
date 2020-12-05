@@ -1,0 +1,14 @@
+---
+apiVersion: extract/v1
+urls: telegraph.co.uk
+samples:
+  - >-
+    https://www.telegraph.co.uk/politics/2020/12/04/brexit-trade-deal-hangs-balance-aseu-makes-10-year-fishing-demand/
+extract:
+  document:
+    select: article
+    content: p
+  name:
+    select: 'meta[name="twitter:title"]'
+    attribute: content
+    first: true
