@@ -1,0 +1,26 @@
+---
+apiVersion: extract/v1
+urls: theepochtimes.com
+samples:
+  - >-
+    https://www.theepochtimes.com/canadas-pandemic-response-deeply-flawed-says-former-provincial-emergency-agency-chief_3629333.html
+extract:
+  updated:
+    select: 'meta[name="date"]'
+    attribute: content
+    first: true
+  document:
+    select: div.active.upper_row
+    content: p
+  name:
+    select: 'meta[name="twitter:title"]'
+    attribute: content
+    first: true
+  datePublished:
+    select: 'meta[property="article:published_time"]'
+    attribute: content
+    first: true
+  dateModified:
+    select: 'meta[property="og:updated_time"]'
+    attribute: content
+    first: true
