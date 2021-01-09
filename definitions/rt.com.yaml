@@ -1,0 +1,21 @@
+---
+apiVersion: extract/v1
+urls: 
+- rt.com
+- www.rt.com
+samples:
+  - https://www.rt.com/news/511941-denmark-coronavirus-vaccine-passport/
+extract:
+  document:
+    select: div.article
+    content: p
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true

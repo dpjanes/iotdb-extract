@@ -73,7 +73,7 @@ if (require.main === module) {
         // last step
         .then(extract.clean)
         .make(sd => {
-            console.log(yaml.safeDump(sd.jsons, {
+            console.log(yaml.dump(sd.jsons, {
                 sortKeys: true,
             }))
         })

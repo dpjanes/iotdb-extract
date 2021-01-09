@@ -33,6 +33,7 @@ const ad = minimist(process.argv.slice(2), {
         "_",
         "as",
         "rules",
+        "text",
     ],
     alias: {
         "one": "first",
@@ -78,6 +79,7 @@ news sites (e.g. cnn, cbc, bbc)
 
 Output options (by default, output is YAML):
 
+--text <field>   only output this field as text
 --first          only output the first result
 --json           output the data as JSON
 --jsonl          output the data as JSON Lines
@@ -180,14 +182,26 @@ _.promise({
             })
         }
 
-        if (ad.jsonl) {
+        if (ad.text) {
+            if (ad.one) {
+                console.log(_.d.first(sd.jsons[0], ad.text, "")
+                    .replace(/\n/g, "\n\n")
+                )
+            } else {
+                sd.jsons.forEach(json => {
+                    console.log(_.d.first(json, ad.text, "")
+                        .replace(/\n/g, "\n\n")
+                    )
+                })
+            }
+        } else if (ad.jsonl) {
             sd.jsons.forEach(json => console.log(JSON.stringify(json)))
         } else if (ad.one) {
             if (ad.json) {
                 console.log(JSON.stringify(sd.jsons[0] || null, null, 2))
             } else if (sd.jsons.length) {
                 console.log("--")
-                console.log(yaml.safeDump(jsons[0], {
+                console.log(yaml.dump(jsons[0], {
                     sortKeys: true,
                 }))
             } else {
@@ -199,7 +213,7 @@ _.promise({
             } else {
                 sd.jsons.forEach(json => {
                     console.log("--")
-                    console.log(yaml.safeDump(json, {
+                    console.log(yaml.dump(json, {
                         sortKeys: true,
                     }))
                 })
