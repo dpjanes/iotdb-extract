@@ -14,5 +14,6 @@ then
     exit 1
 fi
 
-node analyze.js --url "$1" --rule rule.yaml
-node extract.js --url "$1" --rule rule.yaml
+BIN=$(dirname $0)
+node $BIN/analyze.js --url "$1" --rule rule.yaml
+node $BIN/extract.js --url "$1" --rule rule.yaml

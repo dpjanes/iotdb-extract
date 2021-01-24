@@ -1,0 +1,20 @@
+---
+apiVersion: extract/v1
+urls: billboard.com
+samples:
+  - >-
+    https://www.billboard.com/articles/business/touring/9481166/ticketmaster-vaccine-check-concerts-plan/
+extract:
+  document:
+    select: article
+    content: p
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true

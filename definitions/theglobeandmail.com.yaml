@@ -1,0 +1,24 @@
+---
+apiVersion: extract/v1
+urls: theglobeandmail.com
+samples:
+  - >-
+    https://www.theglobeandmail.com/canada/article-ottawa-seeking-technology-to-manage-covid-19-vaccine-distribution-and/
+extract:
+  document:
+    select: article div.c-article-body.js-c-article-body.u-clearfix
+    content: p
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true
+  dateModified:
+    select: meta[property="article:modified_time"]
+    attribute: content
+    first: true

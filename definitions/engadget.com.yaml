@@ -1,0 +1,14 @@
+---
+apiVersion: extract/v1
+urls: engadget.com
+samples:
+  - >-
+    https://www.engadget.com/covid-19-digital-vaccine-cards-microsoft-oracle-mayo-clinic-225029556.html
+extract:
+  name:
+    select: meta[name="twitter:title"]
+    attribute: content
+    first: true
+  document:
+    select: article.c-gray-1
+    content: p

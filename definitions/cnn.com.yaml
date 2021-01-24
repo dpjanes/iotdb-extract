@@ -1,0 +1,23 @@
+---
+apiVersion: extract/v1
+urls: cnn.com
+samples:
+  - https://www.cnn.com/travel/article/saga-cruises-vaccine/index.html
+extract:
+  document:
+    select: div.Article__body
+    content: div.Paragraph__component
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true
+  modified:
+    select: meta[name="lastmod"]
+    attribute: content
+    first: true
