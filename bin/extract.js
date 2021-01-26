@@ -131,7 +131,7 @@ _.promise({
     rule_path: ad.rule || null,
 })
     // fetch the document 
-    .conditional(ad.cache, fs.cache)
+    .conditional(ad.cache && !ad.file, fs.cache)
     .make(sd => {
         sd.rule = {
             key: _.hash.md5("iotdb-extract", "extract", sd.path || sd.url),
