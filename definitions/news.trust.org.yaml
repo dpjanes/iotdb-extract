@@ -1,0 +1,15 @@
+---
+apiVersion: extract/v1
+urls: news.trust.org
+samples:
+  - https://news.trust.org/item/20210126222729-wmirw
+extract:
+  document:
+    select: .body-text
+    content: p
+    removes:
+    - .trust-principles-disclaimer
+  name:
+    select: meta[name="twitter:title"]
+    attribute: content
+    first: true

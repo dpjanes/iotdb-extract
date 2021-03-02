@@ -1,0 +1,18 @@
+---
+apiVersion: extract/v1
+urls: null
+samples: []
+extract:
+  document:
+    select: article div.Body__content
+    content: p
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true

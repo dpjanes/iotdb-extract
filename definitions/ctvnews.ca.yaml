@@ -1,0 +1,26 @@
+---
+apiVersion: extract/v1
+urls:
+- montreal.ctvnews.ca
+- ctvnews.ca
+samples:
+  - >-
+    https://montreal.ctvnews.ca/vaccine-passports-in-the-works-in-quebec-says-minister-despite-concerns-globally-and-from-trudeau-1.5325000
+extract:
+  document:
+    select: .story .articleBody
+    content: p
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true
+  dateModified:
+    select: meta[property="article:modified_time"]
+    attribute: content
+    first: true
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true

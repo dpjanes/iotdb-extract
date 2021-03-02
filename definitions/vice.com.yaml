@@ -1,0 +1,14 @@
+---
+apiVersion: extract/v1
+urls: vice.com
+samples:
+  - >-
+    https://www.vice.com/en/article/bvx3nq/you-can-now-get-a-covid-passport-for-dollar1995
+extract:
+  document:
+    select: div.article__body-components
+    content: p
+  name:
+    select: meta[property="twitter:title"]
+    attribute: content
+    first: true

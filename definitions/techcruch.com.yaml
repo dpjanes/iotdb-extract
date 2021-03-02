@@ -1,0 +1,29 @@
+---
+apiVersion: extract/v1
+urls: techcrunch.com
+samples:
+  - https://techcrunch.com/2021/02/26/amber-group-jamcovid-data-exposed/
+extract:
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true
+  document:
+    select: article div.article-content
+    content: p
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true
+  dateCreated:
+    select: script[type="application/ld+json"]
+    jsonld: dateCreated
+    list: false
+    first: true
+  keywords:
+    select: script[type="application/ld+json"]
+    jsonld: keywords
+    list: true
+    first: false

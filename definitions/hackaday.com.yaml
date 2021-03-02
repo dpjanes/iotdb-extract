@@ -1,0 +1,21 @@
+---
+apiVersion: extract/v1
+urls: hackaday.com
+samples:
+  - https://hackaday.com/2021/02/01/this-isnt-your-fathers-yellow-card/
+extract:
+  name:
+    select: meta[property="og:title"]
+    attribute: content
+    first: true
+  document:
+    select: article 
+    content: p
+  datePublished:
+    select: meta[property="article:published_time"]
+    attribute: content
+    first: true
+  dateModified:
+    select: meta[property="article:modified_time"]
+    attribute: content
+    first: true

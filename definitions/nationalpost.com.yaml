@@ -6,8 +6,10 @@ samples:
     https://nationalpost.com/news/politics/toronto-police-investigate-sudden-death-at-home-of-late-politician-david-caplan
 extract:
   document:
-    select: article section.article-content
+    select: article 
     content: p
+    removes:
+    - footer
   name:
     select: 'script[type="application/ld+json"]'
     jsonld: headline

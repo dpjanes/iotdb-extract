@@ -1,0 +1,13 @@
+---
+apiVersion: extract/v1
+urls: time.com
+samples:
+  - https://time.com/5934095/covid-vaccine-data/
+extract:
+  document:
+    select: div#article-body
+    content: p
+  name:
+    select: meta[name="twitter:title"]
+    attribute: content
+    first: true

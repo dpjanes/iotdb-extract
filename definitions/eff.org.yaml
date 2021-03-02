@@ -1,0 +1,22 @@
+---
+apiVersion: extract/v1
+urls: eff.org
+samples:
+  - >-
+    https://www.eff.org/deeplinks/2020/08/digital-identification-must-be-designed-privacy-and-equity-10
+extract:
+  name:
+    select: meta[name="twitter:title"]
+    attribute: content
+    first: true
+  document:
+    select: article div.field__items
+    content: p
+  dateModified:
+    select: meta[property="article:modified_time"]
+    attribute: content
+    first: true
+  datePublished:
+    select: meta[property="article:published_time"]
+    attribute: content
+    first: true
