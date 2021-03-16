@@ -1,0 +1,24 @@
+---
+apiVersion: extract/v1
+urls: financialpost.com
+samples:
+  - >-
+    https://financialpost.com/opinion/terence-corcoran-the-great-reset-and-the-covid-pandemic
+extract:
+  document:
+    select: article
+    content: p
+    removes:
+    - .ad
+    - .visually-hidden
+    - .article-content__share-group
+  name:
+    select: script[type="application/ld+json"]
+    jsonld: headline
+    list: false
+    first: true
+  datePublished:
+    select: script[type="application/ld+json"]
+    jsonld: datePublished
+    list: false
+    first: true
